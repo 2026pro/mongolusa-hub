@@ -6,135 +6,191 @@
 <title>MongolUSA Hub — Demo</title>
 <style>
 :root{
-  --primary:#1B5E43; --primary-dark:#154835; --primary-light:#2E7D5B;
-  --accent:#D9A441; --accent-soft:#F6EAD1;
-  --surface:#FAFAF7; --card:#FFFFFF; --card-alt:#F2F3EF;
-  --ink:#141816; --ink-2:#4C5551; --ink-3:#7C8683;
-  --line:#E4E7E3; --line-strong:#CBD1CB;
-  --good:#1B7A4B; --good-bg:#E7F3EC;
-  --warn:#7E5800; --warn-bg:#F8EFD8;
+  --bg:#F4F7F5; --bg2:#EAF0EC;
+  --card:#FFFFFF; --card-alt:#EFF3F0; --side:#FFFFFF;
+  --ink:#13201A; --ink-2:#44554C; --ink-3:#71847A;
+  --line:#DEE6E1; --line-strong:#C3CFC8;
+  --green:#16A34A; --green-2:#059669; --green-soft:#DCFCE7;
+  --primary:#0E7A4E; --primary-dark:#0A5C3B;
+  --accent:#34D399; --accent-soft:#D8F5E7;
+  --price:#0E9F5A;
+  --good:#0E7A4E; --good-bg:#DCF5E7;
+  --warn:#8A6100; --warn-bg:#FBF0D4;
   --serious:#98470B; --serious-bg:#F9E9DB;
-  --critical:#9E2222; --critical-bg:#F8E6E6;
-  --info:#20566F; --info-bg:#E6EFF4;
-  --r-sm:8px; --r-md:12px; --r-lg:20px; --r-pill:999px;
+  --critical:#B42323; --critical-bg:#FBE7E7;
+  --info:#1D5E7C; --info-bg:#E3F0F6;
+  --r-sm:10px; --r-md:16px; --r-lg:22px; --r-pill:999px;
   --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px; --s6:24px; --s8:32px;
-  --sh1:0 1px 2px rgba(16,24,20,.05);
-  --sh2:0 2px 10px rgba(16,24,20,.07);
-  --sh3:0 10px 30px rgba(16,24,20,.13);
+  --sh1:0 1px 2px rgba(10,24,17,.06);
+  --sh2:0 4px 16px rgba(10,24,17,.08);
+  --sh3:0 16px 40px rgba(10,24,17,.16);
   --fast:140ms; --base:240ms;
-  --nav-h:58px;
+  --nav-h:62px; --side-w:236px;
 }
 html[data-theme="dark"]{
-  --primary:#63C098; --primary-dark:#43A078; --primary-light:#84D2AF;
-  --accent:#E4BA6A; --accent-soft:#332C1E;
-  --surface:#101312; --card:#191D1B; --card-alt:#222724;
-  --ink:#EDF0ED; --ink-2:#B4BCB8; --ink-3:#8B9591;
-  --line:#2A302C; --line-strong:#3B433D;
-  --good:#71D29E; --good-bg:#152E1E;
-  --warn:#E0BA66; --warn-bg:#302811;
-  --serious:#E59C63; --serious-bg:#31210F;
-  --critical:#E58484; --critical-bg:#311717;
-  --info:#82BAD6; --info-bg:#13252D;
-  --sh1:0 1px 2px rgba(0,0,0,.4); --sh2:0 2px 10px rgba(0,0,0,.45); --sh3:0 10px 30px rgba(0,0,0,.5);
+  --bg:#0A120E; --bg2:#0D1712;
+  --card:#111C15; --card-alt:#17251D; --side:#0C1610;
+  --ink:#E9F4EE; --ink-2:#A8BDB1; --ink-3:#7C948A;
+  --line:#1D2F25; --line-strong:#2C4436;
+  --green:#22C55E; --green-2:#16A34A; --green-soft:#12301E;
+  --primary:#4ADE80; --primary-dark:#34D399;
+  --accent:#6EE7B7; --accent-soft:#123527;
+  --price:#4ADE80;
+  --good:#6EE7B7; --good-bg:#0F2C1D;
+  --warn:#F0C660; --warn-bg:#2C230C;
+  --serious:#EFA467; --serious-bg:#2E1F0D;
+  --critical:#F08C8C; --critical-bg:#301414;
+  --info:#8FC7E0; --info-bg:#11242D;
+  --sh1:0 1px 2px rgba(0,0,0,.4); --sh2:0 4px 18px rgba(0,0,0,.45); --sh3:0 18px 48px rgba(0,0,0,.55);
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
-  background:var(--surface); color:var(--ink);
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;
+  background:var(--bg); color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;
   font-size:15px; line-height:1.55;
   -webkit-font-smoothing:antialiased;
   transition:background var(--base),color var(--base);
 }
+html[data-theme="dark"] body{
+  background:
+    radial-gradient(1100px 520px at 85% -60px, rgba(34,197,94,.14), transparent 60%),
+    radial-gradient(800px 500px at -10% 30%, rgba(16,185,129,.08), transparent 55%),
+    var(--bg);
+  background-attachment:fixed;
+}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer;background:none;border:none;padding:0}
 a{color:var(--primary);text-decoration:none}
-h1,h2,h3,h4{margin:0;line-height:1.25;font-weight:640;letter-spacing:-.015em}
-h1{font-size:23px} h2{font-size:17px} h3{font-size:15.5px} h4{font-size:13.5px}
+h1,h2,h3,h4{margin:0;line-height:1.25;font-weight:680;letter-spacing:-.02em}
+h1{font-size:24px} h2{font-size:17.5px} h3{font-size:15.5px} h4{font-size:13.5px}
 p{margin:0 0 var(--s3)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:6px}
+svg.ic{width:19px;height:19px;flex:0 0 19px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block}
 
 #demoBanner{
-  background:var(--accent-soft); color:#6A4E12;
-  border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent);
+  background:var(--accent-soft); color:var(--primary-dark);
   font-size:12px; font-weight:600; padding:7px var(--s4); text-align:center;
+  border-bottom:1px solid var(--line);
 }
 html[data-theme="dark"] #demoBanner{color:var(--accent)}
 
+/* ---------- app frame ---------- */
 #appbar{
   position:sticky; top:0; z-index:40;
   display:flex; align-items:center; gap:var(--s3);
   padding:var(--s3) var(--s4);
-  background:color-mix(in srgb,var(--card) 90%,transparent);
-  backdrop-filter:saturate(1.3) blur(10px);
+  background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:saturate(1.3) blur(12px);
   border-bottom:1px solid var(--line);
 }
-.brand{font-weight:680;letter-spacing:-.025em;font-size:16px;color:var(--ink)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:760;letter-spacing:-.03em;font-size:16.5px;color:var(--ink)}
+.brand .logo{
+  width:30px;height:30px;border-radius:9px;flex:0 0 30px;
+  background:linear-gradient(135deg,var(--green) 0%,var(--green-2) 100%);
+  display:grid;place-items:center;color:#fff;font-size:13px;font-weight:800;letter-spacing:0;
+  box-shadow:0 4px 12px color-mix(in srgb,var(--green) 45%,transparent);
+}
+.brand .logo::after{content:"MH"}
 .spacer{flex:1}
 .txtbtn{
-  padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 13px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;
   color:var(--ink-2);border:1px solid var(--line);transition:all var(--fast);white-space:nowrap;
+  background:var(--card);
 }
 .txtbtn:hover{background:var(--card-alt);color:var(--ink)}
 .langtoggle{display:flex;background:var(--card-alt);border-radius:var(--r-pill);padding:3px;gap:2px;border:1px solid var(--line)}
-.langtoggle button{padding:4px 11px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:var(--ink-3);transition:all var(--fast)}
-.langtoggle button[aria-pressed="true"]{background:var(--primary);color:#fff}
-html[data-theme="dark"] .langtoggle button[aria-pressed="true"]{color:#0D1411}
+.langtoggle button{padding:4px 11px;border-radius:var(--r-pill);font-size:12.5px;font-weight:640;color:var(--ink-3);transition:all var(--fast)}
+.langtoggle button[aria-pressed="true"]{background:var(--green);color:#fff}
 
 #citybar{
   display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap;
   padding:var(--s2) var(--s4);border-bottom:1px solid var(--line);
-  background:var(--card);font-size:12.5px;color:var(--ink-2);
+  background:color-mix(in srgb,var(--card) 70%,transparent);font-size:12.5px;color:var(--ink-2);
 }
-#citybar b{color:var(--ink);font-weight:640}
+#citybar b{color:var(--ink);font-weight:660}
 
 #layout{display:flex;min-height:calc(100vh - 120px)}
 #rail{display:none}
 #main{flex:1;min-width:0;padding:var(--s4);padding-bottom:calc(var(--nav-h) + var(--s6))}
-.wrap{max-width:1060px;margin:0 auto}
+.wrap{max-width:1120px;margin:0 auto}
 @media(min-width:600px){
   #rail{
-    display:flex;flex-direction:column;gap:2px;width:168px;flex:0 0 168px;
-    padding:var(--s5) var(--s3);border-right:1px solid var(--line);background:var(--card);
+    display:flex;flex-direction:column;gap:1px;width:var(--side-w);flex:0 0 var(--side-w);
+    padding:var(--s4) var(--s3);border-right:1px solid var(--line);
+    background:color-mix(in srgb,var(--side) 88%,transparent);
+    backdrop-filter:blur(8px);
     position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;
   }
+  .railhead{padding:2px var(--s2) var(--s3)}
+  .citypill{
+    display:flex;align-items:center;gap:9px;width:100%;
+    margin:0 0 var(--s3);padding:10px 12px;border-radius:var(--r-sm);
+    background:var(--card-alt);border:1px solid var(--line);
+    font-size:13px;font-weight:640;color:var(--ink);text-align:start;transition:all var(--fast);
+  }
+  .citypill:hover{border-color:var(--green)}
+  .citypill .sub{display:block;font-size:11px;font-weight:500;color:var(--ink-3)}
+  .railsec{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-3);padding:var(--s3) var(--s2) var(--s1)}
   .raillink{
-    display:block;padding:9px var(--s3);border-radius:var(--r-sm);
+    display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:var(--r-sm);
     color:var(--ink-2);font-size:13.5px;font-weight:600;transition:all var(--fast);
   }
+  .raillink svg.ic{color:var(--ink-3);transition:color var(--fast)}
   .raillink:hover{background:var(--card-alt);color:var(--ink)}
-  .raillink[aria-current="page"]{background:var(--accent-soft);color:var(--primary-dark)}
-  .raillink.primary{margin-top:10px;border:1px solid var(--primary);color:var(--primary-dark);font-weight:600;text-align:center}
-  html[data-theme="dark"] .raillink.primary{border-color:var(--accent);color:var(--accent)}
-  html[data-theme="dark"] .raillink[aria-current="page"]{color:var(--accent)}
+  .raillink:hover svg.ic{color:var(--green)}
+  .raillink[aria-current="page"]{background:var(--green-soft);color:var(--primary)}
+  .raillink[aria-current="page"] svg.ic{color:var(--green)}
+  .createbtn{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    margin:var(--s4) var(--s1) var(--s2);padding:12px;border-radius:var(--r-pill);
+    background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;
+    font-size:14px;font-weight:700;
+    box-shadow:0 6px 18px color-mix(in srgb,var(--green) 40%,transparent);
+    transition:transform var(--fast),filter var(--fast);
+  }
+  .createbtn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+  .sidefoot{margin-top:auto;padding-top:var(--s4);display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap}
   #bottomnav{display:none!important}
-  #main{padding:var(--s6);padding-bottom:var(--s8)}
+  #main{padding:var(--s6) var(--s6) var(--s8)}
+  #appbar{justify-content:flex-end;background:transparent;backdrop-filter:none;border-bottom:none;padding:var(--s3) var(--s5) 0}
+  #appbar .brand{display:none}
+  #citybar{display:none!important}
 }
-@media(min-width:1024px){ #main{padding:var(--s8) var(--s6)} }
+@media(min-width:1200px){ #main{padding:var(--s8) 40px} }
 
 #bottomnav{
   position:fixed;bottom:0;left:0;right:0;z-index:50;
   display:flex;justify-content:space-around;align-items:stretch;height:var(--nav-h);
-  background:color-mix(in srgb,var(--card) 95%,transparent);
-  backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:blur(14px);border-top:1px solid var(--line);
   padding-bottom:env(safe-area-inset-bottom);
 }
 #bottomnav a{
-  flex:1;display:flex;align-items:center;justify-content:center;
-  color:var(--ink-3);font-size:12px;font-weight:600;text-align:center;
-  border-top:2px solid transparent;transition:color var(--fast);padding:0 2px;
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  color:var(--ink-3);font-size:10.5px;font-weight:640;text-align:center;
+  transition:color var(--fast);padding:6px 2px;
 }
-#bottomnav a[aria-current="page"]{color:var(--primary);border-top-color:var(--primary)}
-#bottomnav a.navcreate{color:var(--primary);font-weight:600}
-html[data-theme="dark"] #bottomnav a.navcreate{color:var(--accent)}
+#bottomnav a svg.ic{width:21px;height:21px}
+#bottomnav a[aria-current="page"]{color:var(--green)}
+#bottomnav a.navcreate .plus{
+  width:40px;height:40px;border-radius:14px;display:grid;place-items:center;margin-top:-14px;
+  background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;
+  box-shadow:0 6px 16px color-mix(in srgb,var(--green) 45%,transparent);
+}
+#bottomnav a.navcreate .plus svg.ic{width:20px;height:20px;stroke-width:2.4}
 
+/* ---------- cards ---------- */
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh1);
-  transition:box-shadow var(--fast),border-color var(--fast)}
+  transition:box-shadow var(--fast),border-color var(--fast),transform var(--fast);overflow:hidden}
 a.card,button.card{display:block;width:100%;text-align:start;color:inherit}
-a.card:hover,button.card:hover{box-shadow:var(--sh2);border-color:var(--line-strong)}
+a.card:hover,button.card:hover{box-shadow:var(--sh2);border-color:var(--line-strong);transform:translateY(-2px)}
 .pad{padding:var(--s4)}
 .grid{display:grid;gap:var(--s3)}
-@media(min-width:720px){.grid.cols2{grid-template-columns:repeat(2,1fr)}}
+.grid.cols2{grid-template-columns:repeat(auto-fill,minmax(168px,1fr))}
+@media(min-width:900px){.grid.cols2{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))}}
 .row{display:flex;align-items:center;gap:var(--s2)}
 .wrapf{flex-wrap:wrap}
 .muted{color:var(--ink-3)} .dim{color:var(--ink-2)}
@@ -142,41 +198,74 @@ a.card:hover,button.card:hover{box-shadow:var(--sh2);border-color:var(--line-str
 .mt1{margin-top:var(--s1)}.mt2{margin-top:var(--s2)}.mt3{margin-top:var(--s3)}
 .mt4{margin-top:var(--s4)}.mt5{margin-top:var(--s5)}.mt6{margin-top:var(--s6)}
 .mb2{margin-bottom:var(--s2)}.mb3{margin-bottom:var(--s3)}.mb4{margin-bottom:var(--s4)}
+
+.photo{position:relative;aspect-ratio:4/3;display:block;overflow:hidden}
+.photo .cat{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:44px;font-weight:800;color:rgba(255,255,255,.28);letter-spacing:-.02em;user-select:none;
+}
+.photo .cat svg.ic{width:40px;height:40px;stroke-width:1.4;color:rgba(255,255,255,.35)}
+.photo .save{position:absolute;top:9px;right:9px}
+.photo.c-housing{background:linear-gradient(135deg,#16A34A,#0D6E3A)}
+.photo.c-marketplace{background:linear-gradient(135deg,#7C3AED,#5B21B6)}
+.photo.c-vehicles{background:linear-gradient(135deg,#2563EB,#1D4ED8)}
+.photo.c-jobs{background:linear-gradient(135deg,#D97706,#B45309)}
+.photo.c-events{background:linear-gradient(135deg,#DB2777,#9D174D)}
+.card.media{overflow:hidden}
+.card.media .pcbody{padding:11px 13px 13px}
+.pcbody{padding:11px 13px 13px}
+.pcprice{font-size:16px;font-weight:760;color:var(--price);letter-spacing:-.02em}
+.pctitle{font-size:13.5px;font-weight:640;margin-top:2px;color:var(--ink);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcmeta{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-3);margin-top:6px}
+.pcmeta svg.ic{width:13px;height:13px;flex:0 0 13px}
+
+.avatar{width:46px;height:46px;border-radius:50%;flex:0 0 46px;display:grid;place-items:center;
+  color:#fff;font-weight:760;font-size:16px;letter-spacing:.02em}
+.avatar.a0{background:linear-gradient(135deg,#16A34A,#0D6E3A)}
+.avatar.a1{background:linear-gradient(135deg,#2563EB,#1D4ED8)}
+.avatar.a2{background:linear-gradient(135deg,#D97706,#B45309)}
+.avatar.a3{background:linear-gradient(135deg,#DB2777,#9D174D)}
+.avatar.a4{background:linear-gradient(135deg,#7C3AED,#5B21B6)}
+.avatar.a5{background:linear-gradient(135deg,#0891B2,#0E7490)}
+
 .chip{
-  display:inline-flex;align-items:center;padding:3px 10px;border-radius:var(--r-pill);
+  display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:var(--r-pill);
   background:var(--card-alt);border:1px solid var(--line);
   font-size:11.5px;font-weight:600;color:var(--ink-2);white-space:nowrap;
 }
+.chip svg.ic{width:12px;height:12px;flex:0 0 12px}
 .chip.good{background:var(--good-bg);color:var(--good);border-color:transparent}
 .chip.warn{background:var(--warn-bg);color:var(--warn);border-color:transparent}
 .chip.serious{background:var(--serious-bg);color:var(--serious);border-color:transparent}
 .chip.critical{background:var(--critical-bg);color:var(--critical);border-color:transparent}
 .chip.info{background:var(--info-bg);color:var(--info);border-color:transparent}
-.chip.accent{background:var(--accent-soft);color:#6A4E12;border-color:transparent}
-html[data-theme="dark"] .chip.accent{color:var(--accent)}
+.chip.accent{background:var(--accent-soft);color:var(--primary);border-color:transparent}
+
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:10px 18px;border-radius:var(--r-pill);font-weight:640;font-size:14px;
-  background:var(--primary);color:#fff;border:1px solid transparent;
-  transition:filter var(--fast);min-height:42px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 18px;border-radius:var(--r-pill);font-weight:680;font-size:14px;
+  background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;border:1px solid transparent;
+  transition:filter var(--fast),transform var(--fast);min-height:42px;
+  box-shadow:0 4px 14px color-mix(in srgb,var(--green) 30%,transparent);
 }
-html[data-theme="dark"] .btn{color:#0D1411}
-.btn:hover{filter:brightness(1.08)}
-.btn.sec{background:var(--card);color:var(--ink);border-color:var(--line-strong)}
+.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn:disabled{opacity:.45;filter:grayscale(.4);box-shadow:none;cursor:default;transform:none}
+.btn.sec{background:var(--card);color:var(--ink);border-color:var(--line-strong);box-shadow:none}
 .btn.sec:hover{background:var(--card-alt)}
-.btn.ghost{background:transparent;color:var(--primary);border-color:transparent;padding:8px 10px}
+.btn.ghost{background:transparent;color:var(--primary);border-color:transparent;padding:8px 10px;box-shadow:none}
 .btn.ghost:hover{background:var(--card-alt)}
-.btn.danger{background:var(--critical);color:#fff}
+.btn.danger{background:var(--critical);color:#fff;box-shadow:none}
 .btn.sm{padding:7px 14px;font-size:13px;min-height:36px}
 .btn.block{width:100%}
 .field{display:block;margin-bottom:var(--s3)}
 .field > span{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:5px}
 .input,select.input,textarea.input{
-  width:100%;padding:10px 12px;border-radius:var(--r-sm);
+  width:100%;padding:11px 13px;border-radius:var(--r-sm);
   background:var(--card);border:1px solid var(--line-strong);color:var(--ink);
   transition:border-color var(--fast),box-shadow var(--fast);
 }
-.input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)}
+.input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 18%,transparent)}
 textarea.input{min-height:92px;resize:vertical}
 .err{color:var(--critical);font-size:12px;margin-top:4px;display:block}
 .notice{border-radius:var(--r-md);padding:var(--s3) var(--s4);border:1px solid transparent;font-size:13px;line-height:1.55}
@@ -185,70 +274,89 @@ textarea.input{min-height:92px;resize:vertical}
 .notice.warn{background:var(--warn-bg);color:var(--warn);border-color:color-mix(in srgb,var(--warn) 22%,transparent)}
 .notice.critical{background:var(--critical-bg);color:var(--critical);border-color:color-mix(in srgb,var(--critical) 26%,transparent)}
 .notice.neutral{background:var(--card-alt);color:var(--ink-2);border-color:var(--line)}
-.ph{border-radius:var(--r-sm);background:var(--card-alt);border:1px solid var(--line)}
+.ph{border-radius:var(--r-sm);border:1px solid var(--line)}
 .ph.thumb{width:88px;height:66px;flex:0 0 88px}
 .ph.hero{width:100%;aspect-ratio:16/7}
 .sep{height:1px;background:var(--line);margin:var(--s4) 0;border:0}
 .list{display:flex;flex-direction:column;gap:var(--s3)}
-.kv{display:flex;justify-content:space-between;gap:var(--s4);padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.kv{display:flex;justify-content:space-between;gap:var(--s4);padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
 .kv:last-child{border-bottom:0}
-.kv b{font-weight:600}
+.kv b{font-weight:620}
 .empty{text-align:center;padding:var(--s8) var(--s4);color:var(--ink-3)}
 .tabs{display:flex;gap:var(--s1);border-bottom:1px solid var(--line);margin-bottom:var(--s4);overflow-x:auto}
 .tabs button{padding:10px 14px;font-weight:640;font-size:14px;color:var(--ink-3);
   border-bottom:2px solid transparent;white-space:nowrap;transition:all var(--fast)}
-.tabs button[aria-selected="true"]{color:var(--primary);border-bottom-color:var(--primary)}
+.tabs button[aria-selected="true"]{color:var(--green);border-bottom-color:var(--green)}
 .searchbar{display:flex;gap:var(--s2);margin-bottom:var(--s3)}
 .searchbar .input{flex:1}
-.backlink{display:inline-block;color:var(--ink-2);font-weight:600;font-size:13.5px;margin-bottom:var(--s3)}
+.backlink{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-weight:600;font-size:13.5px;margin-bottom:var(--s3)}
 .backlink:hover{color:var(--ink)}
-.price{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.price{font-size:19px;font-weight:760;letter-spacing:-.02em;color:var(--price)}
+.sechead{display:flex;align-items:center;gap:var(--s2);margin:var(--s6) 0 var(--s3)}
+.sechead h2{flex:1;display:flex;align-items:center;gap:9px}
+.sechead h2 svg.ic{color:var(--green)}
+.seeall{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:640;color:var(--primary)}
 .qa{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s2)}
 .qa a{
   padding:var(--s4);border-radius:var(--r-md);background:var(--card);border:1px solid var(--line);
   color:var(--ink);font-size:14px;font-weight:640;box-shadow:var(--sh1);transition:all var(--fast);
 }
-.qa a:hover{border-color:var(--primary);color:var(--primary)}
+.qa a:hover{border-color:var(--green);color:var(--primary);transform:translateY(-2px)}
 .qa a .c{display:block;font-size:11.5px;font-weight:500;color:var(--ink-3);margin-top:3px}
 .hstrip{display:flex;gap:var(--s3);overflow-x:auto;padding-bottom:var(--s2);scroll-snap-type:x mandatory}
 .hstrip > *{flex:0 0 260px;scroll-snap-align:start}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--s3)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--s3)}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s4);box-shadow:var(--sh1)}
-.stat .n{font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
-.stat .l{font-size:12.5px;color:var(--ink-2);font-weight:600;margin-top:2px}
+.stat .n{font-size:26px;font-weight:760;letter-spacing:-.03em;line-height:1.1;color:var(--primary)}
+.stat .l{font-size:12px;color:var(--ink-2);font-weight:600;margin-top:2px}
 .stat .s{margin-top:var(--s2)}
 .steps{display:flex;gap:var(--s1);margin-bottom:var(--s5);flex-wrap:wrap}
-.steps .st{padding:6px 12px;border-radius:var(--r-pill);background:var(--card-alt);color:var(--ink-3);
-  font-size:12.5px;font-weight:640;border:1px solid var(--line)}
-.steps .st.on{background:var(--primary);color:#fff;border-color:transparent}
-html[data-theme="dark"] .steps .st.on{color:#0D1411}
+.steps .st{padding:6px 13px;border-radius:var(--r-pill);background:var(--card-alt);color:var(--ink-3);
+  font-size:12.5px;font-weight:660;border:1px solid var(--line)}
+.steps .st.on{background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;border-color:transparent}
 .steps .st.done{background:var(--good-bg);color:var(--good);border-color:transparent}
-.toggles{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--s2)}
+.toggles{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:var(--s2)}
 .toggle{
-  display:flex;align-items:center;gap:var(--s2);padding:11px var(--s3);
+  display:flex;align-items:center;gap:var(--s2);padding:12px var(--s4);
   border-radius:var(--r-sm);border:1px solid var(--line-strong);background:var(--card);
-  font-size:13.5px;font-weight:600;cursor:pointer;transition:all var(--fast);
+  font-size:13.5px;font-weight:620;cursor:pointer;transition:all var(--fast);
 }
-.toggle:hover{border-color:var(--primary)}
-.toggle[data-on="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--primary-dark)}
-html[data-theme="dark"] .toggle[data-on="true"]{color:var(--accent)}
-.toggle input{accent-color:var(--primary);width:16px;height:16px}
+.toggle:hover{border-color:var(--green);transform:translateY(-1px)}
+.toggle[data-on="true"]{background:var(--green-soft);border-color:var(--green);color:var(--primary);font-weight:700}
+.toggle input{accent-color:var(--green);width:16px;height:16px}
+.onbwrap{max-width:660px;margin:4vh auto 0}
+.onbcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--s8);box-shadow:var(--sh2)}
+@media(max-width:599px){.onbcard{padding:var(--s5)}}
 .md h1,.md h2,.md h3{margin:var(--s5) 0 var(--s2)}
 .md h1{font-size:18px}.md h2{font-size:16px}.md h3{font-size:14.5px}
 .md > :first-child{margin-top:0}
 .md ul{margin:0 0 var(--s3);padding-left:var(--s5)}
 .md li{margin-bottom:5px}
 .md p{margin-bottom:var(--s3);color:var(--ink-2)}
-dialog{border:none;border-radius:var(--r-lg);padding:0;max-width:440px;width:calc(100% - 32px);
-  background:var(--card);color:var(--ink);box-shadow:var(--sh3)}
-dialog::backdrop{background:rgba(10,16,13,.45)}
+dialog{border:none;border-radius:var(--r-lg);padding:0;max-width:460px;width:calc(100% - 32px);
+  background:var(--card);color:var(--ink);box-shadow:var(--sh3);border:1px solid var(--line)}
+dialog::backdrop{background:rgba(5,12,8,.55);backdrop-filter:blur(3px)}
+dialog.sheet{max-width:640px;width:calc(100% - 24px)}
+@media(max-width:599px){
+  dialog.sheet{margin:auto 0 0;max-width:100%;width:100%;border-radius:var(--r-lg) var(--r-lg) 0 0}
+}
 .dlg{padding:var(--s5)}
 .dlg h3{margin-bottom:var(--s2)}
 .dlgacts{display:flex;gap:var(--s2);justify-content:flex-end;margin-top:var(--s5);flex-wrap:wrap}
+.cityrow{display:flex;align-items:center;gap:11px;width:100%;padding:12px var(--s3);border-radius:var(--r-sm);
+  font-size:14px;font-weight:600;color:var(--ink);text-align:start;transition:background var(--fast)}
+.cityrow:hover{background:var(--card-alt)}
+.cityrow svg.ic{color:var(--ink-3)}
+.cityrow .st2{font-size:11.5px;color:var(--ink-3);font-weight:500}
+.cityrow[data-on="true"]{background:var(--green-soft);color:var(--primary)}
+.cityrow[data-on="true"] svg.ic{color:var(--green)}
+.cityrow.loc{border:1px solid var(--line);margin-bottom:var(--s2)}
+.cityrow.loc svg.ic{color:var(--green)}
 #toast{
   position:fixed;left:50%;transform:translateX(-50%) translateY(16px);
   bottom:calc(var(--nav-h) + 14px);z-index:200;
-  background:var(--ink);color:var(--surface);padding:10px 18px;border-radius:var(--r-pill);
+  background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:var(--r-pill);
   font-size:13.5px;font-weight:600;box-shadow:var(--sh3);
   opacity:0;pointer-events:none;transition:opacity var(--base),transform var(--base);
   max-width:calc(100% - 32px);text-align:center;
@@ -256,10 +364,11 @@ dialog::backdrop{background:rgba(10,16,13,.45)}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(min-width:600px){#toast{bottom:22px}}
 .savebtn{padding:6px 12px;border-radius:var(--r-pill);border:1px solid var(--line-strong);
-  font-size:12px;font-weight:640;color:var(--ink-2);transition:all var(--fast);white-space:nowrap}
-.savebtn:hover{border-color:var(--primary);color:var(--primary)}
-.savebtn.on{background:var(--accent-soft);border-color:var(--accent);color:var(--primary-dark)}
-html[data-theme="dark"] .savebtn.on{color:var(--accent)}
+  font-size:12px;font-weight:660;color:var(--ink-2);transition:all var(--fast);white-space:nowrap;background:var(--card)}
+.savebtn:hover{border-color:var(--green);color:var(--primary)}
+.savebtn.on{background:var(--green-soft);border-color:var(--green);color:var(--primary)}
+.photo .save .savebtn{background:rgba(8,14,10,.55);border-color:transparent;color:#fff;backdrop-filter:blur(4px)}
+.photo .save .savebtn.on{background:var(--green);color:#fff}
 .maparea{border-radius:var(--r-md);border:1px solid var(--line);height:150px;background:var(--card-alt);
   display:grid;place-items:center;text-align:center;padding:var(--s4);color:var(--ink-3)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -268,7 +377,7 @@ html[data-theme="dark"] .savebtn.on{color:var(--accent)}
 <body>
 <div id="demoBanner"></div>
 <header id="appbar">
-  <a class="brand" href="#/home" id="brandName">MongolUSA Hub</a>
+  <a class="brand" href="#/home"><span class="logo"></span><span id="brandName">MongolUSA Hub</span></a>
   <span class="spacer"></span>
   <div class="langtoggle" role="group" aria-label="Language">
     <button id="langMn" onclick="setLang('mn')">МН</button>
@@ -287,7 +396,7 @@ html[data-theme="dark"] .savebtn.on{color:var(--accent)}
 
 <script>
 const DATA = {"housing":[{"id":"demo-h1","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-15T12:00:00.000Z","updatedAt":"2026-08-15T12:00:00.000Z","category":"housing","subcategory":"apartment","title":"2 өрөө байр — Avondale, Chicago","description":"Гэрэлтэй, тохилог 2 унтлагын өрөөтэй байр. Belmont Blue Line буудлаас 10 минут алхана. Монгол дэлгүүр, зоогийн газар ойрхон. Угаалгын машин байранд байгаа. 9-р сарын 1-нээс орох боломжтой.","priceCents":165000,"currency":"USD","photos":["demo/h1/1","demo/h1/2","demo/h1/3"],"city":"Chicago","state":"IL","zip":"60618","location":{"lat":41.939,"lng":-87.711},"geohash":"dp3wm","showExactAddress":false,"housing":{"bedrooms":2,"bathrooms":1,"furnished":false,"utilitiesIncluded":false,"availableFrom":"2026-08-31T12:00:00.000Z","leaseMonths":12},"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-h2","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-13T12:00:00.000Z","updatedAt":"2026-08-13T12:00:00.000Z","category":"housing","subcategory":"room","title":"Өрөө түрээслүүлнэ — Lincoln Square","description":"Монгол айлд нэг өрөө түрээслүүлнэ. Тавилгатай, интернэт болон бүх төлбөр багтсан. Brown Line ойрхон. Эмэгтэй хүн авахыг хүсэж байна гэх мэт шаардлага тавихгүй — хэн ч байж болно.","priceCents":70000,"currency":"USD","photos":["demo/h2/1","demo/h2/2"],"city":"Chicago","state":"IL","zip":"60625","location":{"lat":41.971,"lng":-87.689},"showExactAddress":false,"housing":{"bedrooms":1,"bathrooms":1,"furnished":true,"utilitiesIncluded":true,"availableFrom":"2026-08-20T12:00:00.000Z"},"contactMethod":"phone","searchTokens":[],"isDemo":true},{"id":"demo-h3","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-16T12:00:00.000Z","updatedAt":"2026-08-16T12:00:00.000Z","category":"housing","subcategory":"sublease","title":"1BR sublease — Westwood, Denver","description":"Гэрээ дуусах хүртэл (6 сар) 1 өрөө байр дамжуулан түрээслүүлнэ. Morrison Rd дагуу, монгол хүнсний дэлгүүр ойр. Машины зогсоол үнэгүй. Pet-friendly.","priceCents":130000,"currency":"USD","photos":["demo/h3/1","demo/h3/2"],"city":"Denver","state":"CO","zip":"80219","location":{"lat":39.699,"lng":-105.035},"showExactAddress":false,"housing":{"bedrooms":1,"bathrooms":1,"furnished":true,"utilitiesIncluded":false,"availableFrom":"2026-08-24T12:00:00.000Z","leaseMonths":6},"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-h4","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-11T12:00:00.000Z","updatedAt":"2026-08-11T12:00:00.000Z","category":"housing","subcategory":"shared","title":"Shared housing — Columbia Pike, Arlington VA","description":"DC орчмын монголчуудын дунд алдартай Columbia Pike-д хамтарч амьдрах хүн хайж байна. Том байшингийн доод давхар, тусдаа орц, угаалгын өрөөтэй. Pentagon City metro 15 мин.","priceCents":85000,"currency":"USD","photos":["demo/h4/1"],"city":"Arlington","state":"VA","zip":"22204","location":{"lat":38.862,"lng":-77.09},"showExactAddress":false,"housing":{"bedrooms":1,"bathrooms":1,"furnished":false,"utilitiesIncluded":true,"availableFrom":"2026-08-27T12:00:00.000Z"},"contactMethod":"email","searchTokens":[],"isDemo":true},{"id":"demo-h5","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-08T12:00:00.000Z","updatedAt":"2026-08-08T12:00:00.000Z","category":"housing","subcategory":"apartment","title":"Studio — Koreatown, Los Angeles","description":"Koreatown-ийн төвд студи байр. Vermont/Wilshire metro ойрхон. Шинээр засварласан, гал тогооны хэрэгсэл бүрэн. Barista, үйлчилгээний ажил олдоход дөхөм байршил.","priceCents":145000,"currency":"USD","photos":["demo/h5/1","demo/h5/2"],"city":"Los Angeles","state":"CA","zip":"90020","location":{"lat":34.066,"lng":-118.309},"showExactAddress":false,"housing":{"bedrooms":0,"bathrooms":1,"furnished":false,"utilitiesIncluded":false,"availableFrom":"2026-09-07T12:00:00.000Z","leaseMonths":12},"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-h6","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-05T12:00:00.000Z","updatedAt":"2026-08-05T12:00:00.000Z","category":"housing","subcategory":"room","title":"Өрөө — Fruitvale, Oakland","description":"Bay Area-д ажил эхэлж буй хүнд тохиромжтой өрөө. BART Fruitvale буудал алхаад 8 минут. Гал тогоо, угаалгын машин хамт хэрэглэнэ. Depost нэг сарын түрээс.","priceCents":80000,"currency":"USD","photos":["demo/h6/1"],"city":"Oakland","state":"CA","zip":"94601","location":{"lat":37.775,"lng":-122.224},"showExactAddress":false,"housing":{"bedrooms":1,"bathrooms":1,"furnished":true,"utilitiesIncluded":true,"availableFrom":"2026-08-22T12:00:00.000Z"},"contactMethod":"phone","searchTokens":[],"isDemo":true},{"id":"demo-h7","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-14T12:00:00.000Z","updatedAt":"2026-08-14T12:00:00.000Z","category":"housing","subcategory":"apartment","title":"3BR apartment — Ruby Hill, Denver","description":"Гэр бүлд тохиромжтой 3 унтлагын өрөөтэй байр. Хашаа, гарааштай. Force Elementary сургууль ойрхон. Наадам болдог Ruby Hill Park алхах зайд.","priceCents":210000,"currency":"USD","photos":["demo/h7/1","demo/h7/2","demo/h7/3"],"city":"Denver","state":"CO","zip":"80223","location":{"lat":39.692,"lng":-105.008},"showExactAddress":false,"housing":{"bedrooms":3,"bathrooms":2,"furnished":false,"utilitiesIncluded":false,"availableFrom":"2026-09-16T12:00:00.000Z","leaseMonths":12},"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-h8","ownerUid":"demo-user-1","status":"pending","createdAt":"2026-08-17T07:00:00.000Z","updatedAt":"2026-08-17T07:00:00.000Z","category":"housing","subcategory":"roommate","title":"Roommate хайж байна — Jefferson Park, Chicago","description":"2 өрөө байрандаа өрөөний хамтрагч хайж байна. Blue Line Jefferson Park буудлын дэргэд. Түрээс, төлбөрийг тэнцүү хуваана.","priceCents":65000,"currency":"USD","photos":["demo/h8/1"],"city":"Chicago","state":"IL","zip":"60630","location":{"lat":41.97,"lng":-87.76},"showExactAddress":false,"housing":{"bedrooms":1,"bathrooms":1,"furnished":false,"utilitiesIncluded":false,"availableFrom":"2026-08-18T12:00:00.000Z"},"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-h9","ownerUid":"demo-user-1","status":"approved","createdAt":"2026-08-15T12:00:00.000Z","updatedAt":"2026-08-15T12:00:00.000Z","category":"housing","subcategory":"room","title":"Өрөө түрээслүүлнэ — Astoria, Queens","description":"Тусдаа өрөө, гал тогоо болон угаалгын өрөө хуваалцана. N/W галт тэрэгний буудал 7 минутын алхалт. Тамхи татдаггүй хүн.","priceCents":105000,"currency":"USD","photos":["demo/h9/1"],"city":"New York","state":"NY","zip":"11103","location":{"lat":40.764,"lng":-73.923},"showExactAddress":false,"housing":{"bedrooms":1,"bathrooms":1,"furnished":true,"utilitiesIncluded":true,"availableFrom":"2026-08-31T12:00:00.000Z","leaseMonths":12},"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-h10","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-11T12:00:00.000Z","updatedAt":"2026-08-11T12:00:00.000Z","category":"housing","subcategory":"apartment","title":"2BR apartment — Sunnyside, Queens","description":"2 өрөө байр, гэрэлтэй. Угаалгын машин байшинд байгаа. Гэрээ 1 жил. Тэжээвэр амьтан зөвшөөрөхгүй.","priceCents":265000,"currency":"USD","photos":["demo/h10/1","demo/h10/2"],"city":"New York","state":"NY","zip":"11104","location":{"lat":40.743,"lng":-73.92},"showExactAddress":false,"housing":{"bedrooms":2,"bathrooms":1,"furnished":false,"utilitiesIncluded":false,"availableFrom":"2026-09-16T12:00:00.000Z","leaseMonths":12},"contactMethod":"inApp","searchTokens":[],"isDemo":true}],"marketplace":[{"id":"demo-m2","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-12T12:00:00.000Z","updatedAt":"2026-08-12T12:00:00.000Z","category":"marketplace","subcategory":"goods","title":"5 ханатай гэр — бүрэн иж бүрдэл","description":"Монголоос авчирсан 5 ханатай гэр зарна. Бүрээс, багана, тооно, хаалга бүгд бүрэн. Наадам, event-д түрээслэж байсан, сайн нөхцөлтэй.","priceCents":350000,"currency":"USD","photos":["demo/m2/1","demo/m2/2","demo/m2/3"],"city":"Denver","state":"CO","zip":"80219","showExactAddress":false,"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-m3","ownerUid":"demo-user-1","status":"approved","createdAt":"2026-08-09T12:00:00.000Z","updatedAt":"2026-08-09T12:00:00.000Z","category":"marketplace","subcategory":"goods","title":"Өвлийн дугуй 4ш — 215/60R16","description":"Bridgestone Blizzak өвлийн дугуй, нэг улирал хэрэглэсэн. Зузаан хээтэй үлдсэн. Arlington-оос өөрөө авна.","priceCents":25000,"currency":"USD","photos":["demo/m3/1"],"city":"Arlington","state":"VA","zip":"22204","showExactAddress":false,"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-m4","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-15T12:00:00.000Z","updatedAt":"2026-08-15T12:00:00.000Z","category":"marketplace","subcategory":"cargo","title":"УБ руу ачаа — 9-р сарын эхээр гарна","description":"Чикагогоос Улаанбаатар руу ачаа авна. Кг тутамд тооцно, том ачаанд хямдралтай. Бичиг баримт, эм зэрэг яаралтай зүйлс авч болно. Утсаар холбогдоно уу.","priceCents":9500,"currency":"USD","photos":["demo/m4/1"],"city":"Chicago","state":"IL","zip":"60625","showExactAddress":false,"contactMethod":"phone","searchTokens":[],"isDemo":true},{"id":"demo-m5","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-02T12:00:00.000Z","updatedAt":"2026-08-02T12:00:00.000Z","category":"marketplace","subcategory":"goods","title":"Морин хуур — гар урлал","description":"Улаанбаатарт урчуулсан морин хуур. Их биед нь жижиг зураас бий, дуугаралт маш сайн. Хайрцаг дагалдана. San Francisco орчмоос авна.","priceCents":60000,"currency":"USD","photos":["demo/m5/1","demo/m5/2"],"city":"San Francisco","state":"CA","zip":"94112","showExactAddress":false,"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-m6","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-10T12:00:00.000Z","updatedAt":"2026-08-10T12:00:00.000Z","category":"marketplace","subcategory":"furniture","title":"Буйдан + кофены ширээ","description":"Нүүхтэй холбоотойгоор буйдан, кофены ширээ хямд зарна. Сайн нөхцөлтэй, тамхи, амьтангүй айлд байсан. LA Koreatown-оос авна.","priceCents":18000,"currency":"USD","photos":["demo/m6/1"],"city":"Los Angeles","state":"CA","zip":"90020","showExactAddress":false,"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-m7","ownerUid":"demo-user-1","status":"rejected","createdAt":"2026-08-14T12:00:00.000Z","updatedAt":"2026-08-15T12:00:00.000Z","category":"marketplace","subcategory":"electronics","title":"iPhone 12 — асахгүй байгаа","description":"Дэлгэц нь хагарсан iPhone 12. Сэлбэгт ашиглаж болно.","priceCents":25000,"currency":"USD","photos":["demo/m7/1"],"city":"Chicago","state":"IL","zip":"60630","showExactAddress":false,"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-m8","ownerUid":"demo-user-3","status":"pending","createdAt":"2026-08-17T10:00:00.000Z","updatedAt":"2026-08-17T10:00:00.000Z","category":"marketplace","subcategory":"exchange","title":"Ном солилцъё — монгол уран зохиол","description":"Монголоос авчирсан уран зохиолын номнуудаа солилцох хүн хайж байна. Жагсаалтыг чатаар илгээнэ.","priceCents":0,"currency":"USD","photos":["demo/m8/1"],"city":"Denver","state":"CO","zip":"80223","showExactAddress":false,"contactMethod":"inApp","searchTokens":[],"isDemo":true},{"id":"demo-m9","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-13T12:00:00.000Z","updatedAt":"2026-08-13T12:00:00.000Z","category":"marketplace","subcategory":"goods","title":"Дээл — эмэгтэй, зуны, шинэ","description":"Улаанбаатараас авчирсан, нэг ч удаа өмсөөгүй. M хэмжээ.","priceCents":22000,"currency":"USD","photos":["demo/m9/1"],"city":"New York","state":"NY","zip":"11106","showExactAddress":false,"contactMethod":"inApp","searchTokens":[],"isDemo":true}],"vehicles":[{"id":"demo-m1","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-16T12:00:00.000Z","updatedAt":"2026-08-16T12:00:00.000Z","category":"vehicles","subcategory":"van","title":"2014 Toyota Sienna — 132k miles","description":"Гэр бүлийн машин, нэг эзэнтэй байсан. Ойрын үед timing belt, тоормос солиулсан. Clean title. Үзэж, жолоодоод үзэж болно.","priceCents":890000,"currency":"USD","photos":["demo/m1/1","demo/m1/2"],"city":"Chicago","state":"IL","zip":"60659","showExactAddress":false,"vehicle":{"make":"Toyota","model":"Sienna","year":2014,"mileageMiles":132000,"transmission":"automatic","titleClean":true},"contactMethod":"phone","searchTokens":[],"isDemo":true},{"id":"demo-v2","ownerUid":"demo-user-1","status":"approved","createdAt":"2026-08-14T12:00:00.000Z","updatedAt":"2026-08-14T12:00:00.000Z","category":"vehicles","subcategory":"sedan","title":"2017 Honda Accord EX — 88k miles","description":"Нэг эзэнтэй, бүрэн бүтэн. Өвлийн дугуй дагалдана. Carfax-аа харуулна. Clean title.","priceCents":1245000,"currency":"USD","photos":["demo/v2/1"],"city":"New York","state":"NY","zip":"11106","showExactAddress":false,"vehicle":{"make":"Honda","model":"Accord EX","year":2017,"mileageMiles":88000,"transmission":"automatic","titleClean":true},"contactMethod":"phone","searchTokens":[],"isDemo":true},{"id":"demo-v3","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-08T12:00:00.000Z","updatedAt":"2026-08-08T12:00:00.000Z","category":"vehicles","subcategory":"suv","title":"2015 Ford Escape — rebuilt title","description":"Урд талдаа осол болж засварласан, rebuilt title. Явж байгаа, механик хэсэг сайн. Үнэ хямд байгаа шалтгаан нь энэ.","priceCents":520000,"currency":"USD","photos":["demo/v3/1"],"city":"Chicago","state":"IL","zip":"60625","showExactAddress":false,"vehicle":{"make":"Ford","model":"Escape","year":2015,"mileageMiles":141000,"transmission":"automatic","titleClean":false},"contactMethod":"inApp","searchTokens":[],"isDemo":true}],"jobs":[{"id":"demo-j1","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-16T12:00:00.000Z","updatedAt":"2026-08-16T12:00:00.000Z","title":"Тогооч (Line Cook) — монгол ресторан","description":"Чикагогийн монгол ресторанд туслах тогооч авна. Туршлагагүй ч сургаж болно. Цалин туршлагаас хамаарна, хоол үнэгүй. Ажлын хуваарь уян хатан.","employerName":"Khan Grill Chicago","employmentType":"fullTime","remote":false,"compensation":{"minCents":1800,"maxCents":2200,"period":"hour"},"city":"Chicago","state":"IL","contactEmail":"jobs@khangrill.example.com","searchTokens":[],"isDemo":true},{"id":"demo-j2","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-14T12:00:00.000Z","updatedAt":"2026-08-14T12:00:00.000Z","title":"Home Health Aide — Arlington","description":"Ахмад настанд гэрийн асаргаа үзүүлэх ажилтан хайж байна. Сертификаттай бол давуу тал, байхгүй бол сургалтад хамруулна. Ажлын зөвшөөрөлтэй байх шаардлагатай.","employerName":"NoVa Care Services","employmentType":"partTime","remote":false,"compensation":{"minCents":1700,"maxCents":1900,"period":"hour"},"city":"Arlington","state":"VA","applyUrl":"https://example.com/nova-care/apply","searchTokens":[],"isDemo":true},{"id":"demo-j3","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-15T12:00:00.000Z","updatedAt":"2026-08-15T12:00:00.000Z","title":"CDL-A Truck Driver — OTR","description":"Денверт баазтай тээврийн компанид CDL-A жолооч авна. Монгол диспетчертэй, шинэ жолоочийг дэмжинэ. 2 жилийн туршлага шаардана. Clean MVR.","employerName":"Altai Freight LLC","employmentType":"fullTime","remote":false,"compensation":{"minCents":7500000,"maxCents":9500000,"period":"year"},"city":"Denver","state":"CO","applyUrl":"https://example.com/altai-freight/apply","searchTokens":[],"isDemo":true},{"id":"demo-j4","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-13T12:00:00.000Z","updatedAt":"2026-08-13T12:00:00.000Z","title":"Bilingual Support Specialist (MN/EN) — Remote","description":"Монгол, англи хэлээр харилцагчийн үйлчилгээ үзүүлэх мэргэжилтэн. Бүрэн зайнаас ажиллана. Америкт ажиллах эрхтэй байх шаардлагатай.","employerName":"Steppe Health Tech","employmentType":"contract","remote":true,"compensation":{"minCents":2500,"period":"hour"},"applyUrl":"https://example.com/steppe-health/apply","searchTokens":[],"isDemo":true},{"id":"demo-j5","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-11T12:00:00.000Z","updatedAt":"2026-08-11T12:00:00.000Z","title":"Хүүхэд асрагч — Daycare Assistant","description":"Сан Францискогийн лицензтэй daycare-т туслах багш авна. Хүүхдэд элэгтэй, англи хэлний дунд шатны мэдлэгтэй байх. Background check хийгдэнэ.","employerName":"Sunny Steps Daycare","employmentType":"partTime","remote":false,"compensation":{"minCents":2000,"maxCents":2300,"period":"hour"},"city":"San Francisco","state":"CA","contactEmail":"hello@sunnysteps.example.com","searchTokens":[],"isDemo":true},{"id":"demo-j6","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-08T12:00:00.000Z","updatedAt":"2026-08-08T12:00:00.000Z","title":"Accounting Intern","description":"LA-гийн нягтлан бодох бүртгэлийн фирмд дадлагажигч авна. Нягтлангийн чиглэлээр суралцаж буй оюутнуудад нээлттэй. QuickBooks мэдлэг давуу тал.","employerName":"Naran Accounting Group","employmentType":"internship","remote":false,"compensation":{"minCents":1800,"period":"hour"},"city":"Los Angeles","state":"CA","applyUrl":"https://example.com/naran-accounting/apply","searchTokens":[],"isDemo":true},{"id":"demo-j7","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-15T12:00:00.000Z","updatedAt":"2026-08-15T12:00:00.000Z","title":"Хүүхэд асрагч — Queens","description":"2 хүүхэд (4 ба 7 настай) асрах. Даваа–Баасан 14:00–19:00. Монгол, англи хэлтэй. Ажлын зөвшөөрөлтэй байх шаардлагатай.","employerName":"Family in Astoria","employmentType":"partTime","remote":false,"compensation":{"minCents":2000,"maxCents":2500,"period":"hour"},"city":"New York","state":"NY","contactEmail":"astoria.family@example.com","searchTokens":[],"isDemo":true},{"id":"demo-j8","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-10T12:00:00.000Z","updatedAt":"2026-08-10T12:00:00.000Z","title":"Warehouse associate — Long Island City","description":"Агуулахын ажилтан. Өдрийн ээлж, 40 цаг/долоо хоног. Англи хэл дунд түвшин хангалттай. Эрүүл мэндийн даатгалтай.","employerName":"LIC Logistics Inc","employmentType":"fullTime","remote":false,"compensation":{"minCents":2100,"maxCents":2400,"period":"hour"},"city":"New York","state":"NY","applyUrl":"https://example.com/lic-logistics/apply","searchTokens":[],"isDemo":true}],"events":[{"id":"demo-e1","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-07-28T12:00:00.000Z","updatedAt":"2026-07-28T12:00:00.000Z","title":"Career Networking Night — Chicago","description":"Чикагогийн монгол мэргэжилтнүүдийн танилцах үдэшлэг. IT, эрүүл мэнд, санхүү, тээврийн салбарын зочид ирнэ. Resume-гээ авчираарай!","startAt":"2026-08-23T23:00:00.000Z","endAt":"2026-08-24T02:00:00.000Z","timezone":"America/Chicago","venueName":"Horner Park Fieldhouse","city":"Chicago","state":"IL","location":{"lat":41.961,"lng":-87.698},"address":"2741 W Montrose Ave, Chicago, IL 60618","organizerUid":"demo-user-2","registrationUrl":"https://example.com/events/networking-chi","capacity":80,"category":"networking","photos":[],"cancelled":false,"isDemo":true},{"id":"demo-e2","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-08-02T12:00:00.000Z","updatedAt":"2026-08-02T12:00:00.000Z","title":"Монгол хэлний сургуулийн элсэлт — Arlington","description":"DC орчмын монгол хэлний зөвхөн амралтын өдрийн сургуулийн бүртгэл. 5-14 насны хүүхдүүд хамрагдана. Хичээл 9-р сарын дундуур эхэлнэ.","startAt":"2026-08-27T14:00:00.000Z","endAt":"2026-08-27T17:00:00.000Z","timezone":"America/New_York","venueName":"Kenmore Middle School","city":"Arlington","state":"VA","address":"200 S Carlin Springs Rd, Arlington, VA 22204","organizerUid":"demo-user-3","registrationUrl":"https://example.com/events/mgl-school-dc","category":"school","photos":[],"cancelled":false,"isDemo":true},{"id":"demo-e3","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-07T12:00:00.000Z","updatedAt":"2026-08-07T12:00:00.000Z","title":"Морин хуурын тоглолт — SF Bay Area","description":"Улаанбаатараас зочлон ирж буй уран бүтээлчдийн морин хуур, уртын дууны тоглолт. Орлогын тодорхой хувь монгол хэлний сургуульд зориулагдана.","startAt":"2026-09-13T02:00:00.000Z","endAt":"2026-09-13T04:00:00.000Z","timezone":"America/Los_Angeles","venueName":"Herbst Theatre","city":"San Francisco","state":"CA","address":"401 Van Ness Ave, San Francisco, CA 94102","organizerUid":"demo-user-2","registrationUrl":"https://example.com/events/morin-khuur-sf","capacity":400,"category":"culture","photos":[],"cancelled":false,"isDemo":true},{"id":"demo-e4","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-07-18T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","title":"Naadam Festival — Chicago 2026 (намрын наадам)","description":"Чикагогийн монголчуудын намрын наадам: бөх, сур, шагайн харваа, хүүхдийн тэмцээн, монгол хоол. Гэр бүлээрээ ирээрэй! Үнэгүй, бүртгэл шаардлагагүй.","startAt":"2026-10-01T16:00:00.000Z","endAt":"2026-10-01T23:00:00.000Z","timezone":"America/Chicago","venueName":"Schiller Woods","city":"Chicago","state":"IL","location":{"lat":41.953,"lng":-87.83},"address":"Irving Park Rd & Cumberland Ave, Chicago, IL","organizerUid":"demo-user-3","category":"naadam","photos":[],"cancelled":false,"isDemo":true},{"id":"demo-e5","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-12T12:00:00.000Z","updatedAt":"2026-08-12T12:00:00.000Z","title":"Консулын явуулын үйлчилгээ — Denver","description":"Монгол Улсын ЭСЯ-ны явуулын консулын үйлчилгээ: гадаад паспорт шинэчлэх, итгэмжлэл, тодорхойлолт. Урьдчилан бүртгүүлэх шаардлагатай. Бичиг баримтаа бүрэн авчирна уу.","startAt":"2026-10-16T15:00:00.000Z","endAt":"2026-10-17T22:00:00.000Z","timezone":"America/Denver","venueName":"Mongolian Community Center of Colorado","city":"Denver","state":"CO","address":"Denver, CO (хаяг бүртгүүлсэн хүмүүст илгээгдэнэ)","organizerUid":"demo-user-2","registrationUrl":"https://example.com/events/consular-denver","category":"consular","photos":[],"cancelled":false,"isDemo":true},{"id":"demo-e6","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-08-05T12:00:00.000Z","updatedAt":"2026-08-05T12:00:00.000Z","title":"Career Networking Night — New York","description":"Нью-Йорк орчмын монгол мэргэжилтнүүдийн танилцах үдэшлэг. Санхүү, эрүүл мэнд, барилга, IT-ийн зочид ирнэ.","startAt":"2026-08-27T22:00:00.000Z","endAt":"2026-08-28T01:00:00.000Z","timezone":"America/New_York","venueName":"Astoria Community Room","city":"New York","state":"NY","location":{"lat":40.764,"lng":-73.923},"address":"31-15 Example Ave, Astoria, NY 11106","organizerUid":"demo-user-2","registrationUrl":"https://example.com/events/networking-ny","capacity":120,"category":"networking","photos":[],"cancelled":false,"isDemo":true},{"id":"demo-e7","ownerUid":"demo-staff-1","status":"approved","createdAt":"2026-07-23T12:00:00.000Z","updatedAt":"2026-07-23T12:00:00.000Z","title":"Монгол хэлний хичээл — New York Mongol School","description":"Ням гараг бүрийн хичээл. Шинэ сурагчдын бүртгэл нээлттэй. 5–14 насны хүүхдүүд, түвшнээр нь ангилна.","startAt":"2026-08-21T16:00:00.000Z","endAt":"2026-08-21T19:00:00.000Z","timezone":"America/New_York","venueName":"New York Mongol School","city":"New York","state":"NY","location":{"lat":40.758,"lng":-73.918},"address":"37-10 Example Blvd, Astoria, NY 11103","organizerUid":"demo-staff-1","organizationId":"demo-o4","registrationUrl":"https://example.com/events/ny-school","category":"school","photos":[],"cancelled":false,"isDemo":true},{"id":"demo-e8","ownerUid":"demo-staff-1","status":"approved","createdAt":"2026-07-08T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","title":"Наадам 2026 — New York","description":"Жил бүрийн Наадам. Бөх, сурын харваа, хүүхдийн тэмцээн, монгол хоолны зах. Гэр бүлээрээ ирээрэй.","startAt":"2026-09-07T14:00:00.000Z","endAt":"2026-09-07T22:00:00.000Z","timezone":"America/New_York","venueName":"Flushing Meadows Corona Park","city":"New York","state":"NY","location":{"lat":40.746,"lng":-73.845},"address":"Flushing Meadows Corona Park, Queens, NY 11368","organizerUid":"demo-staff-1","organizationId":"demo-o5","capacity":900,"category":"naadam","photos":[],"cancelled":false,"isDemo":true}],"directory":[{"id":"demo-d1","ownerUid":"demo-user-2","status":"approved","createdAt":"2025-10-21T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"S. Enkhjargal, Esq.","category":"immigrationAttorney","languages":["mn","en"],"city":"Chicago","state":"IL","website":"https://example.com/enkhjargal-law","phone":"+1 (312) 555-0134","email":"office@enkhjargal-law.example.com","licenseJurisdiction":"Illinois","licenseNumberMasked":"••••7215","verificationSource":"Illinois ARDC lawyer search","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-06-13T12:00:00.000Z","disclaimer":"Listing is informational only and is not legal advice or an attorney-client relationship.","verificationStatus":"verified","isDemo":true},{"id":"demo-d2","ownerUid":"demo-user-3","status":"approved","createdAt":"2025-12-20T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"B. Tuguldur, CPA","category":"cpa","languages":["mn","en"],"city":"Denver","state":"CO","website":"https://example.com/tuguldur-cpa","phone":"+1 (720) 555-0188","licenseJurisdiction":"Colorado","licenseNumberMasked":"••••3402","verificationSource":"Colorado DORA license lookup","verifiedAt":"2026-05-19T12:00:00.000Z","verificationExpiresAt":"2027-04-24T12:00:00.000Z","disclaimer":"Tax information shared in the directory is general in nature and is not professional tax advice.","verificationStatus":"verified","isDemo":true},{"id":"demo-d3","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-02-18T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"D. Oyunbileg — Certified Translator","category":"translator","languages":["mn","en","ru"],"city":"Arlington","state":"VA","email":"oyunbileg@example.com","licenseJurisdiction":"ATA (national)","licenseNumberMasked":"••••9911","verificationSource":"ATA member directory","verifiedAt":"2026-07-18T12:00:00.000Z","verificationExpiresAt":"2027-07-13T12:00:00.000Z","disclaimer":"Certified translations provided independently; the community app does not guarantee acceptance by any agency.","verificationStatus":"verified","isDemo":true},{"id":"demo-d4","ownerUid":"demo-user-3","status":"approved","createdAt":"2025-08-22T12:00:00.000Z","updatedAt":"2026-06-18T12:00:00.000Z","displayName":"N. Saruul — Real Estate Broker","category":"realEstate","languages":["mn","en"],"city":"Chicago","state":"IL","website":"https://example.com/saruul-homes","phone":"+1 (773) 555-0102","licenseJurisdiction":"Illinois","licenseNumberMasked":"••••5580","verificationSource":"IDFPR license lookup","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-03-05T12:00:00.000Z","disclaimer":"Real estate information is provided for reference; always review contracts with your own representation.","verificationStatus":"verified","isDemo":true},{"id":"demo-d5","ownerUid":"demo-user-2","status":"approved","createdAt":"2025-11-20T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"Ch. Anujin, MD — Family Medicine","category":"healthcare","languages":["mn","en"],"city":"San Francisco","state":"CA","website":"https://example.com/anujin-md","licenseJurisdiction":"California","licenseNumberMasked":"••••2247","verificationSource":"Medical Board of California lookup","verifiedAt":"2026-07-18T12:00:00.000Z","verificationExpiresAt":"2027-08-02T12:00:00.000Z","disclaimer":"Directory information is not medical advice. In an emergency call 911.","verificationStatus":"verified","isDemo":true},{"id":"demo-d6","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-01-19T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"G. Bilguun — Insurance Agent","category":"insurance","languages":["mn","en"],"city":"Los Angeles","state":"CA","phone":"+1 (213) 555-0177","licenseJurisdiction":"California","licenseNumberMasked":"••••8830","verificationSource":"CA DOI producer lookup","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-05-24T12:00:00.000Z","disclaimer":"Coverage recommendations depend on individual circumstances; review policy documents carefully.","verificationStatus":"verified","isDemo":true},{"id":"demo-d8","ownerUid":"demo-user-2","status":"approved","createdAt":"2025-11-20T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"B. Nomin-Erdene, MD — Internal Medicine","category":"healthcare","languages":["mn","en"],"city":"Chicago","state":"IL","website":"https://example.com/nominerdene-clinic","phone":"+1 (312) 555-0161","licenseJurisdiction":"Illinois","licenseNumberMasked":"••••5093","verificationSource":"Illinois IDFPR license lookup","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-07-03T12:00:00.000Z","disclaimer":"Directory information is not medical advice and does not create a physician-patient relationship.","verificationStatus":"verified","isDemo":true},{"id":"demo-d9","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-01-19T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"E. Ganzorig — Insurance Agent","category":"insurance","languages":["mn","en"],"city":"Chicago","state":"IL","phone":"+1 (773) 555-0142","email":"ganzorig@example.com","licenseJurisdiction":"Illinois","licenseNumberMasked":"••••8817","verificationSource":"Illinois DOI producer lookup","verifiedAt":"2026-05-19T12:00:00.000Z","verificationExpiresAt":"2027-05-14T12:00:00.000Z","disclaimer":"Coverage recommendations depend on individual circumstances; review policy documents carefully.","verificationStatus":"verified","isDemo":true},{"id":"demo-d10","ownerUid":"demo-user-2","status":"approved","createdAt":"2025-09-21T12:00:00.000Z","updatedAt":"2026-06-18T12:00:00.000Z","displayName":"Ts. Odgerel, CPA","category":"cpa","languages":["mn","en"],"city":"Chicago","state":"IL","website":"https://example.com/odgerel-cpa","phone":"+1 (312) 555-0177","licenseJurisdiction":"Illinois","licenseNumberMasked":"••••2264","verificationSource":"Illinois IDFPR license lookup","verifiedAt":"2026-04-19T12:00:00.000Z","verificationExpiresAt":"2027-04-14T12:00:00.000Z","disclaimer":"Tax information shared in the directory is general in nature and is not professional tax advice.","verificationStatus":"verified","isDemo":true},{"id":"demo-d11","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-02-18T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"M. Batbayar, Esq. — Business & Contracts","category":"attorney","languages":["mn","en"],"city":"Chicago","state":"IL","website":"https://example.com/batbayar-law","phone":"+1 (312) 555-0198","licenseJurisdiction":"Illinois","licenseNumberMasked":"••••6031","verificationSource":"Illinois ARDC lawyer search","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-06-23T12:00:00.000Z","disclaimer":"Listing is informational only and is not legal advice or an attorney-client relationship.","verificationStatus":"verified","isDemo":true},{"id":"demo-d12","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-03-20T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"S. Khulan — Education Consultant","category":"eduConsultant","languages":["mn","en"],"city":"Chicago","state":"IL","email":"khulan@example.com","licenseJurisdiction":"Illinois","licenseNumberMasked":"••••4470","verificationSource":"NACAC membership","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-06-03T12:00:00.000Z","disclaimer":"Educational guidance only; outcomes are not guaranteed.","verificationStatus":"verified","isDemo":true},{"id":"demo-d13","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-04-19T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"A. Tsetsegmaa — Certified Translator","category":"translator","languages":["mn","en"],"city":"Chicago","state":"IL","phone":"+1 (773) 555-0129","email":"tsetsegmaa@example.com","licenseJurisdiction":"ATA certification","licenseNumberMasked":"••••9958","verificationSource":"American Translators Association directory","verifiedAt":"2026-05-19T12:00:00.000Z","verificationExpiresAt":"2027-05-04T12:00:00.000Z","disclaimer":"Translations are not certified for every agency; confirm requirements with the receiving office.","verificationStatus":"verified","isDemo":true},{"id":"demo-d14","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-04-19T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"B. Otgonbayar, Esq. — Immigration","category":"immigrationAttorney","languages":["mn","en"],"city":"New York","state":"NY","website":"https://example.com/otgonbayar-immigration","phone":"+1 (718) 555-0104","licenseJurisdiction":"New York","licenseNumberMasked":"••••2918","verificationSource":"New York State Unified Court System attorney search","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-07-09T12:00:00.000Z","disclaimer":"Listing is informational only and is not legal advice or an attorney-client relationship.","verificationStatus":"verified","isDemo":true},{"id":"demo-d15","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-03-20T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"D. Sarangerel, Esq. — Business & Contracts","category":"attorney","languages":["mn","en"],"city":"New York","state":"NY","phone":"+1 (212) 555-0146","licenseJurisdiction":"New York","licenseNumberMasked":"••••3055","verificationSource":"New York State Unified Court System attorney search","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-07-18T12:00:00.000Z","disclaimer":"Listing is informational only and is not legal advice or an attorney-client relationship.","verificationStatus":"verified","isDemo":true},{"id":"demo-d16","ownerUid":"demo-user-2","status":"approved","createdAt":"2026-02-18T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"J. Enkhtuya, CPA","category":"cpa","languages":["mn","en"],"city":"New York","state":"NY","website":"https://example.com/enkhtuya-cpa","phone":"+1 (718) 555-0182","licenseJurisdiction":"New York","licenseNumberMasked":"••••3192","verificationSource":"NYSED public license verification","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-07-27T12:00:00.000Z","disclaimer":"Tax information shared in the directory is general in nature and is not professional tax advice.","verificationStatus":"verified","isDemo":true},{"id":"demo-d17","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-01-19T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"N. Battulga, MD — Family Medicine","category":"healthcare","languages":["mn","en"],"city":"New York","state":"NY","phone":"+1 (718) 555-0155","licenseJurisdiction":"New York","licenseNumberMasked":"••••3329","verificationSource":"NYSED public license verification","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-08-05T12:00:00.000Z","disclaimer":"Directory information is not medical advice and does not create a physician-patient relationship.","verificationStatus":"verified","isDemo":true},{"id":"demo-d18","ownerUid":"demo-user-2","status":"approved","createdAt":"2025-12-20T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"Kh. Uyanga — Insurance Agent","category":"insurance","languages":["mn","en"],"city":"New York","state":"NY","email":"uyanga@example.com","licenseJurisdiction":"New York","licenseNumberMasked":"••••3466","verificationSource":"NY DFS producer lookup","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-08-14T12:00:00.000Z","disclaimer":"Coverage recommendations depend on individual circumstances; review policy documents carefully.","verificationStatus":"verified","isDemo":true},{"id":"demo-d19","ownerUid":"demo-user-3","status":"approved","createdAt":"2025-11-20T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"O. Munkhbat — Real Estate Salesperson","category":"realEstate","languages":["mn","en"],"city":"New York","state":"NY","website":"https://example.com/munkhbat-realty","phone":"+1 (917) 555-0138","licenseJurisdiction":"New York","licenseNumberMasked":"••••3603","verificationSource":"NY Department of State licensee search","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-08-23T12:00:00.000Z","disclaimer":"Listing is informational only; verify licence status with the state before signing anything.","verificationStatus":"verified","isDemo":true},{"id":"demo-d20","ownerUid":"demo-user-2","status":"approved","createdAt":"2025-10-21T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"S. Nomin — Certified Translator","category":"translator","languages":["mn","en"],"city":"New York","state":"NY","email":"nomin.translate@example.com","licenseJurisdiction":"ATA certification","licenseNumberMasked":"••••3740","verificationSource":"American Translators Association directory","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-09-01T12:00:00.000Z","disclaimer":"Translations are not certified for every agency; confirm requirements with the receiving office.","verificationStatus":"verified","isDemo":true},{"id":"demo-d21","ownerUid":"demo-user-3","status":"approved","createdAt":"2026-04-19T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","displayName":"G. Amarjargal — Education Consultant","category":"eduConsultant","languages":["mn","en"],"city":"New York","state":"NY","email":"amarjargal@example.com","licenseJurisdiction":"New York","licenseNumberMasked":"••••3877","verificationSource":"NACAC membership","verifiedAt":"2026-06-18T12:00:00.000Z","verificationExpiresAt":"2027-09-10T12:00:00.000Z","disclaimer":"Educational guidance only; outcomes are not guaranteed.","verificationStatus":"verified","isDemo":true},{"id":"demo-d7","ownerUid":"demo-user-2","status":"approved","createdAt":"2024-12-25T12:00:00.000Z","updatedAt":"2026-03-20T12:00:00.000Z","displayName":"T. Munkh-Erdene — Education Consultant","category":"eduConsultant","languages":["mn","en"],"city":"Denver","state":"CO","licenseJurisdiction":"Colorado","licenseNumberMasked":"••••1104","verificationSource":"NACAC membership","verifiedAt":"2025-04-24T12:00:00.000Z","verificationExpiresAt":"2026-04-19T12:00:00.000Z","disclaimer":"Educational guidance only; outcomes are not guaranteed.","verificationStatus":"expired","isDemo":true}],"guides":[{"id":"demo-g1","ownerUid":"demo-staff-1","status":"approved","createdAt":"2026-05-19T12:00:00.000Z","updatedAt":"2026-08-05T12:00:00.000Z","title":"Жолооны үнэмлэх авах (Иллинойс)","body":"# Жолооны үнэмлэх авах алхамууд\n\nИллинойс мужид жолооны үнэмлэх (Driver's License) авахад дараах алхмуудыг дагана.\n\n## 1. Бичиг баримтаа бүрдүүлэх\n\n- Паспорт эсвэл виз, I-94 зэрэг хууль ёсны байдлын нотолгоо\n- SSN эсвэл SSN олгогдохгүйг нотлох бичиг (TVDL-д)\n- Оршин суугаа хаягийн нотолгоо 2 ширхэг (түрээсийн гэрээ, банкны хуулга гэх мэт)\n\n## 2. Бичгийн шалгалт\n\nDMV (Secretary of State) салбар дээр очиж бичгийн шалгалт өгнө. Rules of the Road номыг урьдчилан уншаарай — монгол хэл дээрх хураангуй манай нийтлэлд бий.\n\n## 3. Жолоодлогын шалгалт\n\nӨөрийн эсвэл багшийн машинаар шалгалт өгнө. Даатгал, бүртгэл хүчинтэй байх ёстой.\n\n## Зөвлөгөө\n\n- Цаг авахдаа онлайнаар урьдчилан захиалбал дараалал бага.\n- Хэрэв виз, статусын хугацаа 12 сараас бага бол түр үнэмлэх олгогдоно.\n","locale":"mn-Cyrl","sourceUrls":["https://www.ilsos.gov/departments/drivers/drivers_license/home.html"],"jurisdiction":"Illinois","lastReviewedAt":"2026-08-05T12:00:00.000Z","reviewer":"MongolUSA Hub editorial (demo)","disclaimer":"Мэдээлэл лавлагааны зориулалттай бөгөөд хууль зүйн зөвлөгөө биш. Албан ёсны шаардлагыг DMV-ээс шалгана уу.","version":3,"versionHistory":[{"version":3,"changedAt":"2026-08-05T12:00:00.000Z","changedBy":"demo-staff-1","note":"REAL ID шинэчлэл нэмэв"}],"isDemo":true},{"id":"demo-g2","ownerUid":"demo-staff-1","status":"approved","createdAt":"2026-04-19T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","title":"Татварын эхний алхмууд: SSN, ITIN, W-2","body":"# Татварын үндсэн ойлголтууд\n\nАНУ-д ажиллаж буй хүн бүр жил бүр татварын тайлан (tax return) гаргадаг.\n\n## SSN ба ITIN\n\n- SSN — ажиллах эрхтэй хүмүүст олгогдоно.\n- ITIN — SSN авах боломжгүй ч татвар тайлагнах шаардлагатай хүмүүст IRS-ээс олгодог дугаар.\n\n## Ажил олгогчоос авах баримтууд\n\n- W-2 — цалингийн ажилтанд 1-р сард ирнэ.\n- 1099 — гэрээт ажилтанд (contractor) ирнэ. 1099-өөр ажиллаж байгаа бол татвараа өөрөө урьдчилан тооцох хэрэгтэй.\n\n## Тайлан гаргах\n\n- Free File — орлого багатай бол IRS-ийн үнэгүй систем ашиглаж болно.\n- Монгол хэлтэй CPA-тай холбогдохыг хүсвэл манай лавлах (Directory) хэсгээс хайгаарай.\n\n## Анхааруулга\n\nТатварын тайланг хуурамчаар гаргах нь ноцтой хариуцлага хүлээлгэдэг. Эргэлзсэн зүйл байвал мэргэжилтнээс асуугаарай.\n","locale":"mn-Cyrl","sourceUrls":["https://www.irs.gov/individuals/individual-taxpayer-identification-number","https://www.irs.gov/filing/free-file-do-your-federal-taxes-for-free"],"jurisdiction":"Federal (US)","lastReviewedAt":"2026-07-18T12:00:00.000Z","reviewer":"MongolUSA Hub editorial (demo)","disclaimer":"Энэ гарын авлага нь татварын мэргэжлийн зөвлөгөө биш. Таны нөхцөл байдалд тохирсон зөвлөгөөг CPA-аас аваарай.","version":2,"versionHistory":[{"version":2,"changedAt":"2026-07-18T12:00:00.000Z","changedBy":"demo-staff-1","note":"2026 оны хязгаарууд шинэчлэгдэв"}],"isDemo":true},{"id":"demo-g3","ownerUid":"demo-staff-1","status":"approved","createdAt":"2026-06-18T12:00:00.000Z","updatedAt":"2026-08-10T12:00:00.000Z","title":"Хүүхдээ улсын сургуульд бүртгүүлэх","body":"# Улсын сургуульд бүртгүүлэх\n\nАНУ-д бүх хүүхэд иммиграцийн статусаас үл хамааран улсын сургуульд үнэгүй суралцах эрхтэй.\n\n## Шаардлагатай бичиг баримт\n\n- Хүүхдийн төрсний гэрчилгээ (орчуулгатай бол сайн)\n- Вакцины бүртгэл — муж бүр өөр шаардлагатай тул сургуулиасаа асуугаарай\n- Оршин суугаа хаягийн нотолгоо\n\n## ESL / EL хөтөлбөр\n\nАнгли хэл нь төрөлх бус хүүхдүүдэд зориулсан нэмэлт хэлний дэмжлэг (EL) ихэнх сургуульд бий. Бүртгэлийн үеэр хүсэлт гаргаарай.\n\n## Зөвлөгөө\n\n- Сургуулийн дүүрэг (school district) хаягаас хамаардаг тул байр хайхдаа дүүргээ шалгаарай.\n- Үнэгүй болон хөнгөлөлттэй хоолны хөтөлбөрт бүртгүүлж болно.\n","locale":"mn-Cyrl","sourceUrls":["https://www2.ed.gov/about/overview/focus/rights.html"],"jurisdiction":"Federal (US)","lastReviewedAt":"2026-08-10T12:00:00.000Z","reviewer":"MongolUSA Hub editorial (demo)","disclaimer":"Сургуулийн бүртгэлийн журам муж, дүүрэг бүрд өөр байдаг. Эцсийн шаардлагыг өөрийн дүүргээс лавлана уу.","version":1,"versionHistory":[],"isDemo":true}],"alerts":[{"id":"demo-a1","ownerUid":"demo-staff-1","status":"approved","createdAt":"2026-08-17T06:00:00.000Z","updatedAt":"2026-08-17T06:00:00.000Z","type":"weather","title":"Үерийн аюулын мэдэгдэл — Chicago орчим","body":"Үндэсний цаг уурын алба (NWS) Cook County орчимд аадар бороо, үерийн аюулын мэдэгдэл гаргалаа. Доод давхарт амьдардаг бол эд зүйлсээ өндөрлөж, зам үерлэсэн үед машинаар бүү гарна уу.","areaStates":["IL"],"expiresAt":"2026-08-19T12:00:00.000Z","trustedSource":true,"sourceOrg":"National Weather Service (via community mods)","approvedBy":"demo-staff-1","corrections":[],"isDemo":true},{"id":"demo-a2","ownerUid":"demo-staff-1","status":"approved","createdAt":"2026-08-14T12:00:00.000Z","updatedAt":"2026-08-14T12:00:00.000Z","type":"consular","title":"Консулын явуулын үйлчилгээ — Colorado бүртгэл эхэллээ","body":"Монгол Улсын ЭСЯ Денвер хотод явуулын консулын үйлчилгээ үзүүлнэ. Гадаад паспорт шинэчлэх, нотариат, тодорхойлолтын үйлчилгээнд урьдчилан бүртгүүлнэ үү. Дэлгэрэнгүйг Events хэсгээс харна уу.","areaStates":["CO","UT","WY"],"expiresAt":"2026-09-16T12:00:00.000Z","trustedSource":true,"sourceOrg":"Embassy of Mongolia (demo)","approvedBy":"demo-staff-1","corrections":[],"isDemo":true},{"id":"demo-a3","ownerUid":"demo-staff-1","status":"approved","createdAt":"2026-08-15T12:00:00.000Z","updatedAt":"2026-08-15T12:00:00.000Z","type":"consular","title":"Консулын явуулын үйлчилгээ — New York","body":"Иргэний үнэмлэх, гадаад паспорт сунгах болон нотариатын үйлчилгээг Queens дээр 2 өдөр үзүүлнэ. Урьдчилан бүртгүүлнэ. Бүртгэлийн холбоос зохион байгуулагчийн хуудсанд байна.","areaStates":["NY","NJ","CT"],"expiresAt":"2026-09-07T12:00:00.000Z","trustedSource":true,"sourceOrg":"Embassy of Mongolia (demo)","approvedBy":"demo-staff-1","corrections":[],"isDemo":true}],"reports":[{"id":"demo-r1","targetPath":"listings/demo-m1","targetType":"listing","reasonCode":"scam","note":"Урьдчилгаа шаардаад байна, болгоомжтой байгаарай.","reporterUid":"demo-user-3","createdAt":"2026-08-16T16:00:00.000Z"},{"id":"demo-r2","targetPath":"listings/demo-h4","targetType":"listing","reasonCode":"other","note":"Зар хуучирсан байж магадгүй — эзэн нь хариу өгөхгүй байна.","reporterUid":"demo-user-2","createdAt":"2026-08-15T12:00:00.000Z"}],"moderationImages":[{"id":"demo-img1","targetPath":"listings/demo-h8/photos/0","kind":"image","state":"pending","visionResult":{"adult":"VERY_UNLIKELY","violence":"VERY_UNLIKELY","racy":"UNLIKELY"},"createdAt":"2026-08-17T07:00:00.000Z","updatedAt":"2026-08-17T07:00:00.000Z"},{"id":"demo-img2","targetPath":"listings/demo-m8/photos/0","kind":"image","state":"flagged","reasonCode":"visionRacyLikely","visionResult":{"adult":"UNLIKELY","violence":"VERY_UNLIKELY","racy":"LIKELY"},"createdAt":"2026-08-17T10:00:00.000Z","updatedAt":"2026-08-17T10:00:00.000Z"}],"auditLogs":[{"id":"demo-log1","action":"listing.approve","actorUid":"demo-staff-1","targetPath":"listings/demo-h1","before":{"status":"pending"},"after":{"status":"approved"},"at":"2026-08-15T12:00:00.000Z"},{"id":"demo-log2","action":"listing.reject","actorUid":"demo-staff-1","targetPath":"listings/demo-m7","before":{"status":"pending"},"after":{"status":"rejected","reasonCode":"prohibited"},"at":"2026-08-15T12:00:00.000Z"},{"id":"demo-log3","action":"alert.approve","actorUid":"demo-staff-1","targetPath":"alerts/demo-a1","before":{"status":"pending"},"after":{"status":"approved"},"at":"2026-08-17T06:00:00.000Z"}],"profiles":[{"uid":"demo-user-1","displayName":"Болд (Demo)","bio":"Chicago-д амьдардаг. Demo хэрэглэгч.","city":"Chicago","state":"IL","memberSince":"2025-07-13T12:00:00.000Z","badges":["verified"]},{"uid":"demo-user-2","displayName":"Сараа (Demo)","city":"Denver","state":"CO","memberSince":"2024-09-16T12:00:00.000Z","badges":["verified","org"]},{"uid":"demo-user-3","displayName":"Тэмүүлэн (Demo)","city":"Arlington","state":"VA","memberSince":"2025-12-10T12:00:00.000Z","badges":[]}],"organizations":[{"id":"demo-o1","ownerUid":"demo-staff-1","status":"approved","createdAt":"2025-06-23T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","name":"Chicago Mongolian Weekend School — Дэлгэрэх","type":"school","description":"Бямба гараг бүр монгол хэл, бичиг, түүхийн хичээл. 5–14 насны хүүхдүүд. Шинэ сурагч жилийн турш элсүүлнэ.","city":"Chicago","state":"IL","languages":["mn","en"],"address":"4200 N Example Ave, Chicago, IL 60618","website":"https://example.com/chicago-mongol-school","email":"delgerekh@example.com","meetingSchedule":"Бямба 10:00–13:00","verifiedAt":"2026-05-19T12:00:00.000Z","verificationSource":"Illinois nonprofit registration","verificationStatus":"verified","isDemo":true},{"id":"demo-o2","ownerUid":"demo-staff-1","status":"approved","createdAt":"2024-10-26T12:00:00.000Z","updatedAt":"2026-06-18T12:00:00.000Z","name":"Mongolian Community of Illinois","type":"association","description":"Иллинойс дахь монголчуудын нэгдэл. Наадам, Цагаан сар зохион байгуулна; шинээр ирсэн хүмүүст чиглүүлэг өгнө.","city":"Chicago","state":"IL","languages":["mn","en"],"website":"https://example.com/mongol-illinois","email":"info@example.com","verifiedAt":"2026-04-19T12:00:00.000Z","verificationSource":"Illinois Secretary of State business search","verificationStatus":"verified","isDemo":true},{"id":"demo-o3","ownerUid":"demo-user-2","status":"approved","createdAt":"2024-02-29T12:00:00.000Z","updatedAt":"2026-06-18T12:00:00.000Z","name":"Chicago Mongol Buddhist Center","type":"temple","description":"Ням гараг бүр ном унших, бясалгалын цаг. Бүх хүн нээлттэй.","city":"Chicago","state":"IL","languages":["mn","en"],"address":"2100 W Example St, Chicago, IL 60647","phone":"+1 (312) 555-0119","meetingSchedule":"Ням 11:00","verifiedAt":"2026-03-20T12:00:00.000Z","verificationSource":"IRS tax-exempt organization search","verificationStatus":"verified","isDemo":true},{"id":"demo-o4","ownerUid":"demo-staff-1","status":"approved","createdAt":"2025-02-23T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","name":"New York Mongol School","type":"school","description":"Queens дахь монгол хэлний сургууль. Ням гараг бүр хичээллэнэ; том хүмүүст зориулсан бичгийн бүлэг бас бий.","city":"New York","state":"NY","languages":["mn","en"],"address":"37-10 Example Blvd, Astoria, NY 11103","website":"https://example.com/ny-mongol-school","email":"school@example.com","meetingSchedule":"Ням 12:00–15:00","verifiedAt":"2026-06-18T12:00:00.000Z","verificationSource":"New York State charities registry","verificationStatus":"verified","isDemo":true},{"id":"demo-o5","ownerUid":"demo-user-3","status":"approved","createdAt":"2025-09-21T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","name":"New York Mongolian Sports Club","type":"sportsClub","description":"Бөх, сагсан бөмбөг, волейболын дасгалжуулалт. Зун Наадмын бэлтгэл. Шинэ гишүүд хүлээж авна.","city":"New York","state":"NY","languages":["mn","en"],"phone":"+1 (718) 555-0173","meetingSchedule":"Хагас сайн 17:00","verificationStatus":"unverified","isDemo":true},{"id":"demo-o6","ownerUid":"demo-staff-1","status":"approved","createdAt":"2025-12-20T12:00:00.000Z","updatedAt":"2026-07-18T12:00:00.000Z","name":"Консулын өдөрлөг — зохион байгуулах хороо (Chicago)","type":"consulate","description":"Консулын үйлчилгээний өдөрлөгийг зохион байгуулдаг сайн дурын хороо. Албан ёсны консулын газар биш; бүртгэл, байршлын мэдээлэл тараана.","city":"Chicago","state":"IL","languages":["mn","en"],"email":"consular.days@example.com","verificationStatus":"pending","isDemo":true}]};
-const STR  = {"_meta":{"totalKeysExported":341,"missingMongolianTranslations":0,"missingMongolianKeys":[],"demoBannerKey":"demoBannerText","sourceEn":"lib/l10n/app_en.arb","sourceMn":"lib/l10n/app_mn.arb"},"acceptNoticesLabel":{"en":"I confirm this listing follows the community rules and legal notices above.","mn":"Энэ зар дээрх нэгдлийн журам болон хууль зүйн мэдэгдлүүдэд нийцэж байгааг баталж байна."},"actionAddToCalendar":{"en":"Add to Google Calendar","mn":"Google Calendar-т нэмэх"},"actionApply":{"en":"Apply","mn":"Өргөдөл илгээх"},"actionApplyFilters":{"en":"Apply filters","mn":"Шүүлтүүр хэрэглэх"},"actionApprove":{"en":"Approve","mn":"Зөвшөөрөх"},"actionBack":{"en":"Back","mn":"Буцах"},"actionBlock":{"en":"Block user","mn":"Хэрэглэгчийг блоклох"},"actionCancel":{"en":"Cancel","mn":"Болих"},"actionClearFilters":{"en":"Clear filters","mn":"Шүүлтүүр цэвэрлэх"},"actionContact":{"en":"Contact","mn":"Холбогдох"},"actionContinueWithGoogle":{"en":"Continue with Google","mn":"Google хаягаараа нэвтрэх"},"actionDone":{"en":"Done","mn":"Болсон"},"actionFinishSetup":{"en":"Get started","mn":"Эхлэх"},"actionNext":{"en":"Next","mn":"Дараах"},"actionPostListing":{"en":"Post a listing","mn":"Зар оруулах"},"actionRegisterEvent":{"en":"Register","mn":"Бүртгүүлэх"},"actionReject":{"en":"Reject","mn":"Татгалзах"},"actionReport":{"en":"Report","mn":"Мэдэгдэх"},"actionRequestChanges":{"en":"Request changes","mn":"Засвар хүсэх"},"actionResolve":{"en":"Mark resolved","mn":"Шийдвэрлэсэн гэж тэмдэглэх"},"actionRetry":{"en":"Try again","mn":"Дахин оролдох"},"actionSave":{"en":"Save","mn":"Хадгалах"},"actionSeeAll":{"en":"See all","mn":"Бүгдийг харах"},"actionShare":{"en":"Share","mn":"Хуваалцах"},"actionSignIn":{"en":"Sign in","mn":"Нэвтрэх"},"actionSignOut":{"en":"Sign out","mn":"Гарах"},"actionSubmitListing":{"en":"Submit listing","mn":"Зар илгээх"},"actionSubmitReport":{"en":"Submit report","mn":"Мэдэгдэл илгээх"},"actionUnsave":{"en":"Remove from saved","mn":"Хадгалснаас хасах"},"adminAuditTab":{"en":"Audit log","mn":"Аудит бүртгэл"},"adminDecisionSaved":{"en":"Decision saved.","mn":"Шийдвэр хадгалагдлаа."},"adminImagesTab":{"en":"Images","mn":"Зургууд"},"adminNotAuthorized":{"en":"This area is for moderators only.","mn":"Энэ хэсэг зөвхөн модераторуудад зориулагдсан."},"adminNoteLabel":{"en":"Note to the owner (optional)","mn":"Зарын эзэнд өгөх тайлбар (заавал биш)"},"adminPendingTab":{"en":"Pending","mn":"Хүлээгдэж буй"},"adminQueueEmpty":{"en":"Queue is clear. Great work!","mn":"Дараалал хоосон байна. Сайн ажиллалаа!"},"adminRejectTitle":{"en":"Reject listing","mn":"Зар татгалзах"},"adminReportsTab":{"en":"Reports","mn":"Мэдэгдлүүд"},"adminRequestChangesTitle":{"en":"Request changes","mn":"Засвар хүсэх"},"adminStatDecidedToday":{"en":"Decided today","mn":"Өнөөдөр шийдсэн"},"adminStatImages":{"en":"Images in queue","mn":"Хүлээгдэж буй зураг"},"adminStatPending":{"en":"Pending listings","mn":"Хүлээгдэж буй зар"},"adminStatReports":{"en":"Open reports","mn":"Нээлттэй мэдэгдэл"},"adminTitle":{"en":"Moderation","mn":"Модерацийн самбар"},"alertAreaLabel":{"en":"Area","mn":"Бүс нутаг"},"alertExpiresLabel":{"en":"Expires","mn":"Дуусах хугацаа"},"alertSourceLabel":{"en":"Source","mn":"Эх сурвалж"},"alertTypeAssistance":{"en":"Assistance","mn":"Тусламж"},"alertTypeConsular":{"en":"Consular","mn":"Консулын мэдээ"},"alertTypeFundraising":{"en":"Fundraising","mn":"Хандив"},"alertTypeMissingPerson":{"en":"Missing person","mn":"Хүн сураггүй алга болсон"},"alertTypeSafety":{"en":"Safety","mn":"Аюулгүй байдал"},"alertTypeWeather":{"en":"Weather","mn":"Цаг агаар"},"alertsEmpty":{"en":"No active notices.","mn":"Идэвхтэй мэдэгдэл алга."},"alertsTitle":{"en":"Notices","mn":"Мэдэгдэл"},"appTitle":{"en":"MongolUSA Hub","mn":"MongolUSA Hub"},"approximateLocationChip":{"en":"Approximate location","mn":"Ойролцоо байршил"},"approximateLocationNote":{"en":"For safety, the exact address is hidden until the owner chooses to share it.","mn":"Аюулгүй байдлын үүднээс эзэн нь зөвшөөртөл яг хаяг нуугдмал байна."},"bedroomsShort":{"en":"{count} BR","mn":"{count} өрөө"},"blockUserBody":{"en":"You will no longer see listings or messages from this user.","mn":"Энэ хэрэглэгчийн зар, мессеж танд дахин харагдахгүй."},"blockUserTitle":{"en":"Block this user?","mn":"Энэ хэрэглэгчийг блоклох уу?"},"catAdvice":{"en":"Guides","mn":"Зөвлөгөө"},"catBusiness":{"en":"Business","mn":"Бизнес"},"catEvents":{"en":"Events","mn":"Арга хэмжээ"},"catHealth":{"en":"Health","mn":"Эрүүл мэнд"},"catHousing":{"en":"Housing","mn":"Орон сууц"},"catImmigration":{"en":"Immigration","mn":"Цагаачлал"},"catInsurance":{"en":"Insurance","mn":"Даатгал"},"catJobs":{"en":"Jobs","mn":"Ажлын байр"},"catMeet":{"en":"Meet people","mn":"Танилцах"},"catOrgs":{"en":"Organizations","mn":"Байгууллагууд"},"catServices":{"en":"Services","mn":"Үйлчилгээ"},"catTrade":{"en":"Marketplace","mn":"Худалдаа"},"catTraining":{"en":"Training","mn":"Сургалт"},"catVehicles":{"en":"Vehicles","mn":"Тээврийн хэрэгсэл"},"categoryEmpty":{"en":"Nothing under this topic for {city} yet.","mn":"{city} хотод энэ сэдвээр одоогоор мэдээлэл алга."},"categoryHousing":{"en":"Housing","mn":"Байр"},"categoryJobs":{"en":"Jobs","mn":"Ажил"},"categoryMarketplace":{"en":"Marketplace","mn":"Зах зээл"},"compFlat":{"en":"flat rate","mn":"нэг удаагийн"},"compPerHour":{"en":"hour","mn":"цаг"},"compPerYear":{"en":"year","mn":"жил"},"contactEmail":{"en":"Email","mn":"Имэйл"},"contactInApp":{"en":"In-app message","mn":"Апп доторх чат"},"contactPhone":{"en":"Phone","mn":"Утас"},"contactSafetyTip":{"en":"Safety tip: never send deposits before viewing a home or item in person.","mn":"Анхааруулга: байр, барааг биечлэн үзэхээс өмнө урьдчилгаа хэзээ ч бүү шилжүүлээрэй."},"contactSellerBody":{"en":"The owner prefers this contact method. Details are shared after they respond in the app.","mn":"Зарын эзэн энэ сувгаар холбогдохыг хүссэн байна. Апп дотор хариу өгсний дараа дэлгэрэнгүй мэдээлэл нээгдэнэ."},"contactSellerTitle":{"en":"Contact the owner","mn":"Зарын эзэнтэй холбогдох"},"continueAsGuest":{"en":"Continue as guest","mn":"Зочноор үргэлжлүүлэх"},"createListingTitle":{"en":"New listing","mn":"Шинэ зар"},"createStepBasics":{"en":"Category & basics","mn":"Ангилал ба үндсэн мэдээлэл"},"createStepDetails":{"en":"Details & price","mn":"Дэлгэрэнгүй ба үнэ"},"createStepLocation":{"en":"Location","mn":"Байршил"},"createStepPhotosReview":{"en":"Photos & review","mn":"Зураг ба хянах"},"demoBannerText":{"en":"Demo mode — sample data only. Nothing is published.","mn":"Туршилтын горим — зөвхөн жишээ өгөгдөл. Юу ч нийтлэгдэхгүй."},"demoSignInHint":{"en":"Demo mode: any email and password will sign you in.","mn":"Туршилтын горим: дурын имэйл, нууц үгээр нэвтэрч болно."},"dirCatAttorney":{"en":"Attorney","mn":"Өмгөөлөгч"},"dirCatCpa":{"en":"CPA / Accountant","mn":"Нягтлан (CPA)"},"dirCatEduConsultant":{"en":"Education consultant","mn":"Боловсролын зөвлөх"},"dirCatHealthcare":{"en":"Healthcare","mn":"Эрүүл мэнд"},"dirCatImmigrationAttorney":{"en":"Immigration attorney","mn":"Цагаачлалын өмгөөлөгч"},"dirCatInsurance":{"en":"Insurance","mn":"Даатгал"},"dirCatRealEstate":{"en":"Real estate","mn":"Үл хөдлөх хөрөнгө"},"dirCatTranslator":{"en":"Translator","mn":"Орчуулагч"},"directoryDisclaimerBody":{"en":"Only professionals with verified, current licenses appear here. Information is not legal advice.","mn":"Энд зөвхөн лицензээ баталгаажуулсан мэргэжилтнүүд харагдана. Мэдээлэл нь хууль зүйн зөвлөгөө биш."},"directoryDisclaimerTitle":{"en":"Verified listings only","mn":"Зөвхөн баталгаажсан мэдээлэл"},"directoryEmpty":{"en":"No verified professionals in this category yet.","mn":"Энэ ангилалд баталгаажсан мэргэжилтэн одоогоор алга."},"directoryProfileTitle":{"en":"Professional","mn":"Мэргэжилтэн"},"directoryTitle":{"en":"Directory","mn":"Лавлах"},"disclaimer911":{"en":"These notices are not a replacement for 911. In an emergency, always call 911 first.","mn":"Эдгээр мэдэгдэл нь 911-ийг орлохгүй. Яаралтай тохиолдолд эхлээд заавал 911 рүү залгаарай."},"disclaimer911Title":{"en":"Emergency? Call 911","mn":"Яаралтай үед 911 рүү залгаарай"},"employmentContract":{"en":"Contract","mn":"Гэрээт"},"employmentFullTime":{"en":"Full-time","mn":"Бүтэн цагийн"},"employmentInternship":{"en":"Internship","mn":"Дадлага"},"employmentPartTime":{"en":"Part-time","mn":"Хагас цагийн"},"employmentTemporary":{"en":"Temporary","mn":"Түр ажил"},"employmentVolunteer":{"en":"Volunteer","mn":"Сайн дурын"},"errorNetwork":{"en":"No connection. Check your internet and try again.","mn":"Холболт алдаатай байна. Интернэтээ шалгаад дахин оролдоно уу."},"errorNotFound":{"en":"This content could not be found.","mn":"Энэ мэдээлэл олдсонгүй."},"errorUnknown":{"en":"Something went wrong. Please try again.","mn":"Алдаа гарлаа. Дахин оролдоно уу."},"eventCapacity":{"en":"Capacity: {count}","mn":"Багтаамж: {count}"},"eventCatChurch":{"en":"Church","mn":"Сүм хийд"},"eventCatConsular":{"en":"Consular","mn":"Консулын үйлчилгээ"},"eventCatCulture":{"en":"Culture","mn":"Соёл урлаг"},"eventCatNaadam":{"en":"Naadam","mn":"Наадам"},"eventCatNetworking":{"en":"Networking","mn":"Танилцах уулзалт"},"eventCatOther":{"en":"Other","mn":"Бусад"},"eventCatSchool":{"en":"School","mn":"Сургууль"},"eventCatSports":{"en":"Sports","mn":"Спорт"},"eventCatWorkshop":{"en":"Workshop","mn":"Сургалт семинар"},"eventDetailTitle":{"en":"Event","mn":"Арга хэмжээ"},"eventOrganizerLabel":{"en":"Organizer","mn":"Зохион байгуулагч"},"eventTimezoneLabel":{"en":"Time zone: {tz}","mn":"Цагийн бүс: {tz}"},"eventsEmpty":{"en":"No upcoming events yet.","mn":"Одоогоор товлогдсон арга хэмжээ алга."},"eventsTitle":{"en":"Events","mn":"Арга хэмжээ"},"exploreEmptyMessage":{"en":"Try adjusting your search or filters.","mn":"Хайлт эсвэл шүүлтүүрээ өөрчилж үзнэ үү."},"exploreEmptyTitle":{"en":"Nothing found","mn":"Илэрц олдсонгүй"},"exploreTitle":{"en":"Explore","mn":"Хайх"},"fairHousingNotice":{"en":"Under the U.S. Fair Housing Act it is illegal to advertise housing with preferences or limitations based on race, color, religion, sex, disability, familial status, or national origin. Listings that discriminate will be removed.","mn":"АНУ-ын Шударга орон сууцны хуулиар (Fair Housing Act) арьс өнгө, шашин шүтлэг, хүйс, хөгжлийн бэрхшээл, гэр бүлийн байдал, гарал үндэс зэргээр ялгаварласан орон сууцны зар нийтлэх нь хууль бус. Ялгаварласан зар устгагдана."},"fairHousingTitle":{"en":"Fair Housing notice","mn":"Шударга орон сууцны мэдэгдэл"},"fieldCity":{"en":"City","mn":"Хот"},"fieldDescription":{"en":"Description","mn":"Дэлгэрэнгүй тайлбар"},"fieldMonthlyRent":{"en":"Monthly rent","mn":"Сарын түрээс"},"fieldPrice":{"en":"Price","mn":"Үнэ"},"fieldSubcategory":{"en":"Subcategory","mn":"Дэд ангилал"},"fieldTitle":{"en":"Title","mn":"Гарчиг"},"filterAll":{"en":"All","mn":"Бүгд"},"filterAny":{"en":"Any","mn":"Хамаагүй"},"filterAnyState":{"en":"Any state","mn":"Бүх муж"},"filterAvailableBy":{"en":"Available by","mn":"Орох боломжтой огноо"},"filterBedroomsMin":{"en":"Bedrooms (min)","mn":"Унтлагын өрөө (доод)"},"filterCity":{"en":"City","mn":"Хот"},"filterEmploymentType":{"en":"Employment type","mn":"Ажлын төрөл"},"filterFurnished":{"en":"Furnished","mn":"Тавилгатай"},"filterHousingSection":{"en":"Housing filters","mn":"Байрны шүүлтүүр"},"filterPriceRange":{"en":"Price range","mn":"Үнийн хязгаар"},"filterRemoteOnly":{"en":"Remote only","mn":"Зөвхөн зайнаас"},"filterSort":{"en":"Sort","mn":"Эрэмбэлэх"},"filterState":{"en":"State","mn":"Муж"},"filterUtilitiesIncluded":{"en":"Utilities included","mn":"Төлбөр багтсан"},"filterZip":{"en":"ZIP code","mn":"ZIP код"},"filtersTitle":{"en":"Filters","mn":"Шүүлтүүр"},"greetingGuest":{"en":"Welcome!","mn":"Тавтай морил!"},"greetingUser":{"en":"Hello, {name}!","mn":"Сайн байна уу, {name}!"},"guideDisclaimerTitle":{"en":"Disclaimer","mn":"Анхааруулга"},"guideReviewed":{"en":"Reviewed {date}","mn":"{date}-нд хянагдсан"},"guideReviewer":{"en":"Reviewed by {name}","mn":"Хянасан: {name}"},"guideSources":{"en":"Sources","mn":"Эх сурвалж"},"guideVersion":{"en":"v{version}","mn":"Хувилбар {version}"},"guidesEmpty":{"en":"No guides published yet.","mn":"Одоогоор гарын авлага алга."},"guidesTitle":{"en":"Guides","mn":"Гарын авлага"},"homeActiveAlerts":{"en":"{count} active notices","mn":"{count} идэвхтэй мэдэгдэл"},"homeQuickActions":{"en":"Browse","mn":"Ангилал"},"homeRecentListings":{"en":"Recent listings","mn":"Сүүлийн зарууд"},"homeSubtitle":{"en":"News and listings for Mongolians across the USA.","mn":"АНУ дахь Монголчуудын нэгдлийн мэдээ, зарууд."},"homeUpcomingEvents":{"en":"Upcoming events","mn":"Удахгүй болох арга хэмжээ"},"homeYourTopics":{"en":"My topics","mn":"Миний сэдвүүд"},"housingAvailableFrom":{"en":"Available from","mn":"Орох боломжтой огноо"},"housingBathrooms":{"en":"Bathrooms","mn":"Угаалгын өрөө"},"housingBedrooms":{"en":"Bedrooms","mn":"Унтлагын өрөө"},"housingLeaseMonths":{"en":"Lease (months)","mn":"Гэрээний хугацаа (сар)"},"housingLeaseMonthsOptional":{"en":"Lease months (optional)","mn":"Гэрээний сар (заавал биш)"},"jobCompensation":{"en":"Compensation","mn":"Цалин хөлс"},"jobDetailTitle":{"en":"Job","mn":"Ажлын байр"},"jobNoApplyMethod":{"en":"This posting has no application link yet.","mn":"Энэ зарын өргөдлийн холбоос одоогоор алга."},"jobRemote":{"en":"Remote","mn":"Зайнаас"},"languageMongTranslationNote":{"en":"Traditional script coverage is partial; untranslated strings appear in Cyrillic until professional translation is complete.","mn":"Монгол бичгийн орчуулга дутуу тул орчуулагдаагүй хэсэг нь мэргэжлийн орчуулга дуустал кириллээр харагдана."},"languageSystem":{"en":"System default","mn":"Төхөөрөмжийн хэл"},"languagesLabel":{"en":"Languages","mn":"Хэл"},"licenseLabel":{"en":"License","mn":"Лиценз"},"listingDetailTitle":{"en":"Listing","mn":"Зар"},"listingSubmittedBody":{"en":"Your listing is awaiting moderation. It will appear publicly once a moderator approves it.","mn":"Таны зар модераторын хяналтыг хүлээж байна. Зөвшөөрөгдмөгц олон нийтэд харагдана."},"listingSubmittedTitle":{"en":"Submitted for review","mn":"Хянуулахаар илгээгдлээ"},"modReasonIncompleteInfo":{"en":"Incomplete information","mn":"Мэдээлэл дутуу"},"modReasonWrongCategory":{"en":"Wrong category","mn":"Буруу ангилал"},"myListingsEmptyMessage":{"en":"Post your first listing — it goes live after moderator review.","mn":"Анхны зараа оруулаарай — модераторын хяналтын дараа нийтлэгдэнэ."},"myListingsEmptyTitle":{"en":"No listings yet","mn":"Одоогоор зар алга"},"myListingsTitle":{"en":"My listings","mn":"Миний зарууд"},"navAlerts":{"en":"Notices","mn":"Мэдэгдэл"},"navDirectory":{"en":"Directory","mn":"Лавлах"},"navEvents":{"en":"Events","mn":"Арга хэмжээ"},"navExplore":{"en":"Explore","mn":"Хайх"},"navGuides":{"en":"Guides","mn":"Гарын авлага"},"navHome":{"en":"Home","mn":"Нүүр"},"navProfile":{"en":"Profile","mn":"Профайл"},"navSaved":{"en":"Saved","mn":"Хадгалсан"},"no":{"en":"No","mn":"Үгүй"},"notLegalAdviceBody":{"en":"Directory listings are for information only and do not constitute legal, tax, medical or financial advice, or an attorney-client relationship.","mn":"Лавлахын мэдээлэл нь зөвхөн танилцуулгын зориулалттай бөгөөд хууль зүй, татвар, эмнэлэг, санхүүгийн зөвлөгөө болон өмгөөлөгч-үйлчлүүлэгчийн харилцаа үүсгэхгүй."},"notLegalAdviceTitle":{"en":"Not legal advice","mn":"Хууль зүйн зөвлөгөө биш"},"offlineBannerText":{"en":"You appear to be offline.","mn":"Та офлайн байгаа бололтой."},"onbCityBody":{"en":"You will only see what is relevant to your city. You can change this any time.","mn":"Зөвхөн таны хотод хамаарах мэдээлэл харагдана. Хэдийд ч өөрчилж болно."},"onbCityTitle":{"en":"Choose your city","mn":"Хотоо сонгоно уу"},"onbDemoNote":{"en":"Demo mode — no real sign-in happens and nothing is stored.","mn":"Туршилтын горим — жинхэнэ нэвтрэлт хийгдэхгүй, өгөгдөл хадгалагдахгүй."},"onbStepAccount":{"en":"Account","mn":"Бүртгэл"},"onbStepCity":{"en":"City","mn":"Хот"},"onbStepTopics":{"en":"Topics","mn":"Сэдэв"},"onbTopicsBody":{"en":"Only the topics you pick appear on your home screen. Choose at least one.","mn":"Сонгосон сэдвүүд л нүүр хуудсанд харагдана. Дор хаяж нэгийг сонгоно уу."},"onbTopicsTitle":{"en":"Choose your topics","mn":"Юу харахаа сонгоно уу"},"onbWelcomeBody":{"en":"News, listings and services for Mongolians across the USA, in one place. Sign in to begin.","mn":"АНУ дахь Монголчуудын нэгдлийн мэдээ, зар, үйлчилгээ — нэг дороос. Эхлээд нэвтэрнэ үү."},"onbWelcomeTitle":{"en":"Welcome to MongolUSA Hub","mn":"MongolUSA Hub-д тавтай морил"},"orDivider":{"en":"or","mn":"эсвэл"},"orgAddressLabel":{"en":"Address","mn":"Хаяг"},"orgClaimAction":{"en":"Claim this organization","mn":"Энэ байгууллагыг өөрийн болгох"},"orgClaimBody":{"en":"A moderator reviews every claim before it takes effect. Claiming an organization lets you keep its details current — it never grants moderator or administrator rights.","mn":"Хүсэлт бүрийг модератор шалгасны дараа хүчинтэй болно. Байгууллагыг өөрийн болгосноор мэдээллийг нь шинэчилж байх эрх авна — модератор буюу администраторын эрх ОГТ олгохгүй."},"orgClaimSubmitted":{"en":"Claim sent for review","mn":"Хүсэлт хянуулахаар илгээгдлээ"},"orgClaimTitle":{"en":"Claim this organization","mn":"Байгууллагыг өөрийн болгох"},"orgNoticeBody":{"en":"Organizations are listed so the community can find them. A listing is not a recommendation, and a verified badge confirms only that the organization exists and that the contact details were checked.","mn":"Байгууллагуудыг нэгдэл олж чадахын тулд жагсаасан. Жагсаалтад орсон нь зөвлөж байгаа хэрэг биш бөгөөд баталгаажсан тэмдэг нь тухайн байгууллага бодитоор оршин байгаа, холбоо барих мэдээлэл шалгагдсаныг л илэрхийлнэ."},"orgNoticeTitle":{"en":"Listing is not endorsement","mn":"Жагсаалт нь баталгаа биш"},"orgScheduleLabel":{"en":"Meets","mn":"Цагийн хуваарь"},"orgTypeAssociation":{"en":"Association","mn":"Холбоо"},"orgTypeChurch":{"en":"Church","mn":"Сүм хийд"},"orgTypeConsulate":{"en":"Consular","mn":"Консулын"},"orgTypeNonprofit":{"en":"Nonprofit","mn":"Ашгийн бус"},"orgTypeSchool":{"en":"School","mn":"Сургууль"},"orgTypeSportsClub":{"en":"Sports club","mn":"Спортын клуб"},"orgTypeTemple":{"en":"Temple","mn":"Дацан"},"orgUnverifiedNote":{"en":"Not yet verified","mn":"Хараахан баталгаажаагүй"},"photosSectionHint":{"en":"Add up to 10 photos. Demo mode uses placeholders; photos are moderated before publishing.","mn":"Дээд тал нь 10 зураг нэмнэ. Туршилтын горимд орлуулагч зураг ашиглана; зургууд нийтлэгдэхийн өмнө хянагдана."},"prefsAllCities":{"en":"All cities","mn":"Бүх хот"},"prefsCategories":{"en":"Categories to show","mn":"Харах ангилал"},"prefsChange":{"en":"Change","mn":"Өөрчлөх"},"prefsCity":{"en":"My city","mn":"Миний хот"},"prefsCityEmpty":{"en":"Nothing in this category for {city} yet.","mn":"{city} хотод энэ ангилалд одоогоор зар алга."},"prefsIntroBody":{"en":"Pick your city and the categories you care about. Only those appear. You can change this any time.","mn":"Хотоо болон сонирхох ангиллаа сонгоход зөвхөн тэр мэдээлэл харагдана. Хэдийд ч өөрчилж болно."},"prefsIntroTitle":{"en":"Choose what you see","mn":"Юу харахаа сонгоно уу"},"prefsNoCategories":{"en":"No categories selected. Choose at least one.","mn":"Ангилал сонгоогүй байна. Дор хаяж нэгийг сонгоно уу."},"prefsSaveAction":{"en":"Save","mn":"Хадгалах"},"prefsSaved":{"en":"Preferences saved","mn":"Тохиргоо хадгалагдлаа"},"prefsTitle":{"en":"My preferences","mn":"Миний тохиргоо"},"prefsViewAllCities":{"en":"Show all cities","mn":"Бүх хотоор харах"},"profileGuestMessage":{"en":"Sign in to post listings, save items and manage your profile.","mn":"Зар оруулах, хадгалах, профайлаа удирдахын тулд нэвтэрнэ үү."},"profileGuestTitle":{"en":"You are browsing as a guest","mn":"Та зочноор үзэж байна"},"profileTitle":{"en":"Profile","mn":"Профайл"},"reportDialogBody":{"en":"Why are you reporting this? Moderators review every report.","mn":"Та юуны учир мэдэгдэж байна вэ? Модераторууд мэдэгдэл бүрийг хянадаг."},"reportDialogTitle":{"en":"Report content","mn":"Мэдэгдэл илгээх"},"reportNoteLabel":{"en":"Additional details (optional)","mn":"Нэмэлт тайлбар (заавал биш)"},"reportReasonDiscrimination":{"en":"Discrimination","mn":"Ялгаварлан гадуурхалт"},"reportReasonHarassment":{"en":"Harassment","mn":"Дарамт"},"reportReasonOther":{"en":"Other","mn":"Бусад"},"reportReasonProhibited":{"en":"Prohibited item","mn":"Хориотой бараа"},"reportReasonScam":{"en":"Scam or fraud","mn":"Залилан"},"reportReasonSpam":{"en":"Spam","mn":"Спам"},"reportSubmitted":{"en":"Report submitted. Thank you for keeping the community safe.","mn":"Мэдэгдэл илгээгдлээ. Нэгдлээ хамгаалж буйд баярлалаа."},"resultsCount":{"en":"{count} results","mn":"{count} илэрц"},"reviewSectionTitle":{"en":"Review","mn":"Хянах"},"savedEmptyMessage":{"en":"Tap the bookmark icon on any listing to save it here.","mn":"Дурын зарын тэмдэглэгээний товчийг дарж энд хадгалаарай."},"savedEmptyTitle":{"en":"Nothing saved yet","mn":"Хадгалсан зүйл алга"},"savedItemsTab":{"en":"Items","mn":"Зарууд"},"savedTitle":{"en":"Saved","mn":"Хадгалсан"},"savedTypeEvent":{"en":"Event","mn":"Арга хэмжээ"},"savedTypeJob":{"en":"Job","mn":"Ажлын байр"},"savedTypeListing":{"en":"Listing","mn":"Зар"},"searchHint":{"en":"Search listings…","mn":"Зар хайх…"},"sectionContact":{"en":"Contact","mn":"Холбоо барих"},"sectionDescription":{"en":"Description","mn":"Дэлгэрэнгүй"},"sectionHousingDetails":{"en":"Housing details","mn":"Байрны мэдээлэл"},"sectionLocation":{"en":"Location","mn":"Байршил"},"settingsLanguage":{"en":"Language","mn":"Хэл"},"settingsNotifications":{"en":"Notifications","mn":"Мэдэгдэл"},"settingsTheme":{"en":"Theme","mn":"Загвар"},"settingsTitle":{"en":"Settings","mn":"Тохиргоо"},"showExactAddressLabel":{"en":"Show exact address","mn":"Яг хаягийг харуулах"},"signInHeadline":{"en":"Welcome back","mn":"Тавтай морил"},"signInTitle":{"en":"Sign in","mn":"Нэвтрэх"},"signInToSave":{"en":"Sign in to save items.","mn":"Хадгалахын тулд нэвтэрнэ үү."},"signInWithApple":{"en":"Continue with Apple","mn":"Apple-ээр үргэлжлүүлэх"},"signInWithGoogle":{"en":"Continue with Google","mn":"Google-ээр үргэлжлүүлэх"},"sortNewest":{"en":"Newest","mn":"Шинэ эхэндээ"},"sortPriceAsc":{"en":"Price ↑","mn":"Үнэ өсөхөөр"},"sortPriceDesc":{"en":"Price ↓","mn":"Үнэ буурахаар"},"statusApproved":{"en":"Approved","mn":"Зөвшөөрсөн"},"statusArchived":{"en":"Archived","mn":"Архивласан"},"statusChangesRequested":{"en":"Changes requested","mn":"Засвар хүссэн"},"statusDraft":{"en":"Draft","mn":"Ноорог"},"statusExpired":{"en":"Expired","mn":"Хугацаа дууссан"},"statusPending":{"en":"Pending review","mn":"Хяналт хүлээж буй"},"statusRejected":{"en":"Rejected","mn":"Татгалзсан"},"subcatApartment":{"en":"Apartment","mn":"Байр"},"subcatCar":{"en":"Cars","mn":"Машин"},"subcatCargo":{"en":"Cargo to Mongolia","mn":"Монгол руу ачаа"},"subcatElectronics":{"en":"Electronics","mn":"Цахилгаан бараа"},"subcatExchange":{"en":"Exchange","mn":"Солилцоо"},"subcatFurniture":{"en":"Furniture","mn":"Тавилга"},"subcatGoods":{"en":"Goods","mn":"Бараа"},"subcatMotorcycle":{"en":"Motorcycle","mn":"Мотоцикл"},"subcatParts":{"en":"Parts","mn":"Сэлбэг"},"subcatRoom":{"en":"Room","mn":"Өрөө"},"subcatRoommate":{"en":"Roommate","mn":"Өрөөний хамтрагч"},"subcatSedan":{"en":"Sedan","mn":"Суудлын"},"subcatShared":{"en":"Shared housing","mn":"Хамтарч амьдрах"},"subcatSublease":{"en":"Sublease","mn":"Дамжуулан түрээслэх"},"subcatSuv":{"en":"SUV","mn":"Жийп"},"subcatTruck":{"en":"Truck","mn":"Ачааны"},"subcatVan":{"en":"Van / minivan","mn":"Вэн"},"themeDark":{"en":"Dark","mn":"Бараан"},"themeLight":{"en":"Light","mn":"Цайвар"},"themeSystem":{"en":"System","mn":"Систем"},"trustedSourceBadge":{"en":"Trusted source","mn":"Итгэлтэй эх сурвалж"},"validationAcceptNotices":{"en":"Please confirm the rules checkbox first.","mn":"Эхлээд журмыг зөвшөөрсөн тэмдэглэгээг чагтална уу."},"validationAvailableFrom":{"en":"Pick the available-from date","mn":"Орох боломжтой огноог сонгоно уу"},"validationDescriptionLength":{"en":"Description must be at least 20 characters","mn":"Тайлбар доод тал нь 20 тэмдэгт байна"},"validationNumber":{"en":"Enter a valid number","mn":"Зөв тоо оруулна уу"},"validationPrice":{"en":"Enter a valid price","mn":"Зөв үнэ оруулна уу"},"validationRequired":{"en":"Required","mn":"Заавал бөглөнө"},"validationStateRequired":{"en":"Select a state","mn":"Муж сонгоно уу"},"validationTitleLength":{"en":"Title must be at least 5 characters","mn":"Гарчиг доод тал нь 5 тэмдэгт байна"},"validationZip":{"en":"Enter a 5-digit ZIP code","mn":"5 оронтой ZIP код оруулна уу"},"vehicleMileage":{"en":"{miles} mi","mn":"{miles} миль"},"vehicleSafetyBody":{"en":"Meet in a public place, see the title in person and check the VIN against it. Do not send a deposit by wire transfer, gift card or cryptocurrency — those payments cannot be reversed. A rebuilt or salvage title is disclosed on the listing; ask why.","mn":"Олон нийтийн газар уулзаж, title-ыг биечлэн үзэж, VIN дугаартай нь тулгаж шалгаарай. Урьдчилгааг wire transfer, бэлгийн карт, крипто валютаар БҮҮ илгээ — эдгээр төлбөрийг буцаах боломжгүй. Rebuilt эсвэл salvage title-тай эсэхийг зард бичсэн байгаа; шалтгааныг нь асуу."},"vehicleSafetyTitle":{"en":"Before you buy","mn":"Худалдаж авахын өмнө"},"vehicleTitleClean":{"en":"Clean title","mn":"Clean title"},"vehicleTitleRebuilt":{"en":"Rebuilt / salvage title","mn":"Rebuilt / salvage title"},"vehicleTransmissionAuto":{"en":"Automatic","mn":"Автомат"},"vehicleTransmissionManual":{"en":"Manual","mn":"Механик"},"vehicleYear":{"en":"Year","mn":"Он"},"verificationSourceLabel":{"en":"Verified via","mn":"Баталгаажуулсан эх сурвалж"},"verifiedBadge":{"en":"Verified professional","mn":"Баталгаажсан мэргэжилтэн"},"verifiedOn":{"en":"Verified on {date}","mn":"{date}-нд баталгаажсан"},"workAuthNotice":{"en":"Employers must verify work authorization as required by U.S. law, and jobs must comply with minimum wage and labor laws. Report postings that ask for illegal fees or undocumented work arrangements.","mn":"Ажил олгогч нь АНУ-ын хуулийн дагуу ажиллах эрхийг шалгах үүрэгтэй бөгөөд ажлын байр нь хөдөлмөрийн хөлсний доод хэмжээ, хөдөлмөрийн хуульд нийцсэн байх ёстой. Хууль бус төлбөр нэхсэн, бичиг баримтгүй ажиллуулах саналтай зарыг мэдэгдээрэй."},"workAuthTitle":{"en":"Work authorization & labor law","mn":"Ажиллах эрх ба хөдөлмөрийн хууль"},"yes":{"en":"Yes","mn":"Тийм"}};
+const STR  = {"_meta":{"totalKeysExported":342,"missingMongolianTranslations":0,"missingMongolianKeys":[],"demoBannerKey":"demoBannerText","sourceEn":"lib/l10n/app_en.arb","sourceMn":"lib/l10n/app_mn.arb"},"acceptNoticesLabel":{"en":"I confirm this listing follows the community rules and legal notices above.","mn":"Энэ зар дээрх нэгдлийн журам болон хууль зүйн мэдэгдлүүдэд нийцэж байгааг баталж байна."},"actionAddToCalendar":{"en":"Add to Google Calendar","mn":"Google Calendar-т нэмэх"},"actionApply":{"en":"Apply","mn":"Өргөдөл илгээх"},"actionApplyFilters":{"en":"Apply filters","mn":"Шүүлтүүр хэрэглэх"},"actionApprove":{"en":"Approve","mn":"Зөвшөөрөх"},"actionBack":{"en":"Back","mn":"Буцах"},"actionBlock":{"en":"Block user","mn":"Хэрэглэгчийг блоклох"},"actionCancel":{"en":"Cancel","mn":"Болих"},"actionClearFilters":{"en":"Clear filters","mn":"Шүүлтүүр цэвэрлэх"},"actionContact":{"en":"Contact","mn":"Холбогдох"},"actionContinueWithGoogle":{"en":"Continue with Google","mn":"Google хаягаараа нэвтрэх"},"actionDone":{"en":"Done","mn":"Болсон"},"actionFinishSetup":{"en":"Get started","mn":"Эхлэх"},"actionNext":{"en":"Next","mn":"Дараах"},"actionPostListing":{"en":"Post a listing","mn":"Зар оруулах"},"actionRegisterEvent":{"en":"Register","mn":"Бүртгүүлэх"},"actionReject":{"en":"Reject","mn":"Татгалзах"},"actionReport":{"en":"Report","mn":"Мэдэгдэх"},"actionRequestChanges":{"en":"Request changes","mn":"Засвар хүсэх"},"actionResolve":{"en":"Mark resolved","mn":"Шийдвэрлэсэн гэж тэмдэглэх"},"actionRetry":{"en":"Try again","mn":"Дахин оролдох"},"actionSave":{"en":"Save","mn":"Хадгалах"},"actionSeeAll":{"en":"See all","mn":"Бүгдийг харах"},"actionShare":{"en":"Share","mn":"Хуваалцах"},"actionSignIn":{"en":"Sign in","mn":"Нэвтрэх"},"actionSignOut":{"en":"Sign out","mn":"Гарах"},"actionSubmitListing":{"en":"Submit listing","mn":"Зар илгээх"},"actionSubmitReport":{"en":"Submit report","mn":"Мэдэгдэл илгээх"},"actionUnsave":{"en":"Remove from saved","mn":"Хадгалснаас хасах"},"adminAuditTab":{"en":"Audit log","mn":"Аудит бүртгэл"},"adminDecisionSaved":{"en":"Decision saved.","mn":"Шийдвэр хадгалагдлаа."},"adminImagesTab":{"en":"Images","mn":"Зургууд"},"adminNotAuthorized":{"en":"This area is for moderators only.","mn":"Энэ хэсэг зөвхөн модераторуудад зориулагдсан."},"adminNoteLabel":{"en":"Note to the owner (optional)","mn":"Зарын эзэнд өгөх тайлбар (заавал биш)"},"adminPendingTab":{"en":"Pending","mn":"Хүлээгдэж буй"},"adminQueueEmpty":{"en":"Queue is clear. Great work!","mn":"Дараалал хоосон байна. Сайн ажиллалаа!"},"adminRejectTitle":{"en":"Reject listing","mn":"Зар татгалзах"},"adminReportsTab":{"en":"Reports","mn":"Мэдэгдлүүд"},"adminRequestChangesTitle":{"en":"Request changes","mn":"Засвар хүсэх"},"adminStatDecidedToday":{"en":"Decided today","mn":"Өнөөдөр шийдсэн"},"adminStatImages":{"en":"Images in queue","mn":"Хүлээгдэж буй зураг"},"adminStatPending":{"en":"Pending listings","mn":"Хүлээгдэж буй зар"},"adminStatReports":{"en":"Open reports","mn":"Нээлттэй мэдэгдэл"},"adminTitle":{"en":"Moderation","mn":"Модерацийн самбар"},"alertAreaLabel":{"en":"Area","mn":"Бүс нутаг"},"alertExpiresLabel":{"en":"Expires","mn":"Дуусах хугацаа"},"alertSourceLabel":{"en":"Source","mn":"Эх сурвалж"},"alertTypeAssistance":{"en":"Assistance","mn":"Тусламж"},"alertTypeConsular":{"en":"Consular","mn":"Консулын мэдээ"},"alertTypeFundraising":{"en":"Fundraising","mn":"Хандив"},"alertTypeMissingPerson":{"en":"Missing person","mn":"Хүн сураггүй алга болсон"},"alertTypeSafety":{"en":"Safety","mn":"Аюулгүй байдал"},"alertTypeWeather":{"en":"Weather","mn":"Цаг агаар"},"alertsEmpty":{"en":"No active notices.","mn":"Идэвхтэй мэдэгдэл алга."},"alertsTitle":{"en":"Notices","mn":"Мэдэгдэл"},"appTitle":{"en":"MongolUSA Hub","mn":"MongolUSA Hub"},"approximateLocationChip":{"en":"Approximate location","mn":"Ойролцоо байршил"},"approximateLocationNote":{"en":"For safety, the exact address is hidden until the owner chooses to share it.","mn":"Аюулгүй байдлын үүднээс эзэн нь зөвшөөртөл яг хаяг нуугдмал байна."},"bedroomsShort":{"en":"{count} BR","mn":"{count} өрөө"},"blockUserBody":{"en":"You will no longer see listings or messages from this user.","mn":"Энэ хэрэглэгчийн зар, мессеж танд дахин харагдахгүй."},"blockUserTitle":{"en":"Block this user?","mn":"Энэ хэрэглэгчийг блоклох уу?"},"catAdvice":{"en":"Guides","mn":"Зөвлөгөө"},"catBusiness":{"en":"Business","mn":"Бизнес"},"catEvents":{"en":"Events","mn":"Арга хэмжээ"},"catHealth":{"en":"Health","mn":"Эрүүл мэнд"},"catHousing":{"en":"Housing","mn":"Орон сууц"},"catImmigration":{"en":"Immigration","mn":"Цагаачлал"},"catInsurance":{"en":"Insurance","mn":"Даатгал"},"catJobs":{"en":"Jobs","mn":"Ажлын байр"},"catMeet":{"en":"Meet people","mn":"Танилцах"},"catOrgs":{"en":"Organizations","mn":"Байгууллагууд"},"catServices":{"en":"Services","mn":"Үйлчилгээ"},"catTrade":{"en":"Marketplace","mn":"Худалдаа"},"catTraining":{"en":"Training","mn":"Сургалт"},"catVehicles":{"en":"Vehicles","mn":"Тээврийн хэрэгсэл"},"categoryEmpty":{"en":"Nothing under this topic for {city} yet.","mn":"{city} хотод энэ сэдвээр одоогоор мэдээлэл алга."},"categoryHousing":{"en":"Housing","mn":"Байр"},"categoryJobs":{"en":"Jobs","mn":"Ажил"},"categoryMarketplace":{"en":"Marketplace","mn":"Зах зээл"},"compFlat":{"en":"flat rate","mn":"нэг удаагийн"},"compPerHour":{"en":"hour","mn":"цаг"},"compPerYear":{"en":"year","mn":"жил"},"contactEmail":{"en":"Email","mn":"Имэйл"},"contactInApp":{"en":"In-app message","mn":"Апп доторх чат"},"contactPhone":{"en":"Phone","mn":"Утас"},"contactSafetyTip":{"en":"Safety tip: never send deposits before viewing a home or item in person.","mn":"Анхааруулга: байр, барааг биечлэн үзэхээс өмнө урьдчилгаа хэзээ ч бүү шилжүүлээрэй."},"contactSellerBody":{"en":"The owner prefers this contact method. Details are shared after they respond in the app.","mn":"Зарын эзэн энэ сувгаар холбогдохыг хүссэн байна. Апп дотор хариу өгсний дараа дэлгэрэнгүй мэдээлэл нээгдэнэ."},"contactSellerTitle":{"en":"Contact the owner","mn":"Зарын эзэнтэй холбогдох"},"continueAsGuest":{"en":"Continue as guest","mn":"Зочноор үргэлжлүүлэх"},"createListingTitle":{"en":"New listing","mn":"Шинэ зар"},"createStepBasics":{"en":"Category & basics","mn":"Ангилал ба үндсэн мэдээлэл"},"createStepDetails":{"en":"Details & price","mn":"Дэлгэрэнгүй ба үнэ"},"createStepLocation":{"en":"Location","mn":"Байршил"},"createStepPhotosReview":{"en":"Photos & review","mn":"Зураг ба хянах"},"demoBannerText":{"en":"Demo mode — sample data only. Nothing is published.","mn":"Туршилтын горим — зөвхөн жишээ өгөгдөл. Юу ч нийтлэгдэхгүй."},"demoSignInHint":{"en":"Demo mode: any email and password will sign you in.","mn":"Туршилтын горим: дурын имэйл, нууц үгээр нэвтэрч болно."},"dirCatAttorney":{"en":"Attorney","mn":"Өмгөөлөгч"},"dirCatCpa":{"en":"CPA / Accountant","mn":"Нягтлан (CPA)"},"dirCatEduConsultant":{"en":"Education consultant","mn":"Боловсролын зөвлөх"},"dirCatHealthcare":{"en":"Healthcare","mn":"Эрүүл мэнд"},"dirCatImmigrationAttorney":{"en":"Immigration attorney","mn":"Цагаачлалын өмгөөлөгч"},"dirCatInsurance":{"en":"Insurance","mn":"Даатгал"},"dirCatRealEstate":{"en":"Real estate","mn":"Үл хөдлөх хөрөнгө"},"dirCatTranslator":{"en":"Translator","mn":"Орчуулагч"},"directoryDisclaimerBody":{"en":"Only professionals with verified, current licenses appear here. Information is not legal advice.","mn":"Энд зөвхөн лицензээ баталгаажуулсан мэргэжилтнүүд харагдана. Мэдээлэл нь хууль зүйн зөвлөгөө биш."},"directoryDisclaimerTitle":{"en":"Verified listings only","mn":"Зөвхөн баталгаажсан мэдээлэл"},"directoryEmpty":{"en":"No verified professionals in this category yet.","mn":"Энэ ангилалд баталгаажсан мэргэжилтэн одоогоор алга."},"directoryProfileTitle":{"en":"Professional","mn":"Мэргэжилтэн"},"directoryTitle":{"en":"Directory","mn":"Лавлах"},"disclaimer911":{"en":"These notices are not a replacement for 911. In an emergency, always call 911 first.","mn":"Эдгээр мэдэгдэл нь 911-ийг орлохгүй. Яаралтай тохиолдолд эхлээд заавал 911 рүү залгаарай."},"disclaimer911Title":{"en":"Emergency? Call 911","mn":"Яаралтай үед 911 рүү залгаарай"},"employmentContract":{"en":"Contract","mn":"Гэрээт"},"employmentFullTime":{"en":"Full-time","mn":"Бүтэн цагийн"},"employmentInternship":{"en":"Internship","mn":"Дадлага"},"employmentPartTime":{"en":"Part-time","mn":"Хагас цагийн"},"employmentTemporary":{"en":"Temporary","mn":"Түр ажил"},"employmentVolunteer":{"en":"Volunteer","mn":"Сайн дурын"},"errorNetwork":{"en":"No connection. Check your internet and try again.","mn":"Холболт алдаатай байна. Интернэтээ шалгаад дахин оролдоно уу."},"errorNotFound":{"en":"This content could not be found.","mn":"Энэ мэдээлэл олдсонгүй."},"errorUnknown":{"en":"Something went wrong. Please try again.","mn":"Алдаа гарлаа. Дахин оролдоно уу."},"eventCapacity":{"en":"Capacity: {count}","mn":"Багтаамж: {count}"},"eventCatChurch":{"en":"Church","mn":"Сүм хийд"},"eventCatConsular":{"en":"Consular","mn":"Консулын үйлчилгээ"},"eventCatCulture":{"en":"Culture","mn":"Соёл урлаг"},"eventCatNaadam":{"en":"Naadam","mn":"Наадам"},"eventCatNetworking":{"en":"Networking","mn":"Танилцах уулзалт"},"eventCatOther":{"en":"Other","mn":"Бусад"},"eventCatSchool":{"en":"School","mn":"Сургууль"},"eventCatSports":{"en":"Sports","mn":"Спорт"},"eventCatWorkshop":{"en":"Workshop","mn":"Сургалт семинар"},"eventDetailTitle":{"en":"Event","mn":"Арга хэмжээ"},"eventOrganizerLabel":{"en":"Organizer","mn":"Зохион байгуулагч"},"eventTimezoneLabel":{"en":"Time zone: {tz}","mn":"Цагийн бүс: {tz}"},"eventsEmpty":{"en":"No upcoming events yet.","mn":"Одоогоор товлогдсон арга хэмжээ алга."},"eventsTitle":{"en":"Events","mn":"Арга хэмжээ"},"exploreEmptyMessage":{"en":"Try adjusting your search or filters.","mn":"Хайлт эсвэл шүүлтүүрээ өөрчилж үзнэ үү."},"exploreEmptyTitle":{"en":"Nothing found","mn":"Илэрц олдсонгүй"},"exploreTitle":{"en":"Explore","mn":"Хайх"},"fairHousingNotice":{"en":"Under the U.S. Fair Housing Act it is illegal to advertise housing with preferences or limitations based on race, color, religion, sex, disability, familial status, or national origin. Listings that discriminate will be removed.","mn":"АНУ-ын Шударга орон сууцны хуулиар (Fair Housing Act) арьс өнгө, шашин шүтлэг, хүйс, хөгжлийн бэрхшээл, гэр бүлийн байдал, гарал үндэс зэргээр ялгаварласан орон сууцны зар нийтлэх нь хууль бус. Ялгаварласан зар устгагдана."},"fairHousingTitle":{"en":"Fair Housing notice","mn":"Шударга орон сууцны мэдэгдэл"},"fieldCity":{"en":"City","mn":"Хот"},"fieldDescription":{"en":"Description","mn":"Дэлгэрэнгүй тайлбар"},"fieldMonthlyRent":{"en":"Monthly rent","mn":"Сарын түрээс"},"fieldPrice":{"en":"Price","mn":"Үнэ"},"fieldSubcategory":{"en":"Subcategory","mn":"Дэд ангилал"},"fieldTitle":{"en":"Title","mn":"Гарчиг"},"filterAll":{"en":"All","mn":"Бүгд"},"filterAny":{"en":"Any","mn":"Хамаагүй"},"filterAnyState":{"en":"Any state","mn":"Бүх муж"},"filterAvailableBy":{"en":"Available by","mn":"Орох боломжтой огноо"},"filterBedroomsMin":{"en":"Bedrooms (min)","mn":"Унтлагын өрөө (доод)"},"filterCity":{"en":"City","mn":"Хот"},"filterEmploymentType":{"en":"Employment type","mn":"Ажлын төрөл"},"filterFurnished":{"en":"Furnished","mn":"Тавилгатай"},"filterHousingSection":{"en":"Housing filters","mn":"Байрны шүүлтүүр"},"filterPriceRange":{"en":"Price range","mn":"Үнийн хязгаар"},"filterRemoteOnly":{"en":"Remote only","mn":"Зөвхөн зайнаас"},"filterSort":{"en":"Sort","mn":"Эрэмбэлэх"},"filterState":{"en":"State","mn":"Муж"},"filterUtilitiesIncluded":{"en":"Utilities included","mn":"Төлбөр багтсан"},"filterZip":{"en":"ZIP code","mn":"ZIP код"},"filtersTitle":{"en":"Filters","mn":"Шүүлтүүр"},"greetingGuest":{"en":"Welcome!","mn":"Тавтай морил!"},"greetingUser":{"en":"Hello, {name}!","mn":"Сайн байна уу, {name}!"},"guideDisclaimerTitle":{"en":"Disclaimer","mn":"Анхааруулга"},"guideReviewed":{"en":"Reviewed {date}","mn":"{date}-нд хянагдсан"},"guideReviewer":{"en":"Reviewed by {name}","mn":"Хянасан: {name}"},"guideSources":{"en":"Sources","mn":"Эх сурвалж"},"guideVersion":{"en":"v{version}","mn":"Хувилбар {version}"},"guidesEmpty":{"en":"No guides published yet.","mn":"Одоогоор гарын авлага алга."},"guidesTitle":{"en":"Guides","mn":"Гарын авлага"},"homeActiveAlerts":{"en":"{count} active notices","mn":"{count} идэвхтэй мэдэгдэл"},"homeQuickActions":{"en":"Browse","mn":"Ангилал"},"homeRecentListings":{"en":"Recent listings","mn":"Сүүлийн зарууд"},"homeSubtitle":{"en":"News and listings for Mongolians across the USA.","mn":"АНУ дахь Монголчуудын нэгдлийн мэдээ, зарууд."},"homeUpcomingEvents":{"en":"Upcoming events","mn":"Удахгүй болох арга хэмжээ"},"homeYourTopics":{"en":"My topics","mn":"Миний сэдвүүд"},"housingAvailableFrom":{"en":"Available from","mn":"Орох боломжтой огноо"},"housingBathrooms":{"en":"Bathrooms","mn":"Угаалгын өрөө"},"housingBedrooms":{"en":"Bedrooms","mn":"Унтлагын өрөө"},"housingLeaseMonths":{"en":"Lease (months)","mn":"Гэрээний хугацаа (сар)"},"housingLeaseMonthsOptional":{"en":"Lease months (optional)","mn":"Гэрээний сар (заавал биш)"},"jobCompensation":{"en":"Compensation","mn":"Цалин хөлс"},"jobDetailTitle":{"en":"Job","mn":"Ажлын байр"},"jobNoApplyMethod":{"en":"This posting has no application link yet.","mn":"Энэ зарын өргөдлийн холбоос одоогоор алга."},"jobRemote":{"en":"Remote","mn":"Зайнаас"},"languageMongTranslationNote":{"en":"Traditional script coverage is partial; untranslated strings appear in Cyrillic until professional translation is complete.","mn":"Монгол бичгийн орчуулга дутуу тул орчуулагдаагүй хэсэг нь мэргэжлийн орчуулга дуустал кириллээр харагдана."},"languageSystem":{"en":"System default","mn":"Төхөөрөмжийн хэл"},"languagesLabel":{"en":"Languages","mn":"Хэл"},"licenseLabel":{"en":"License","mn":"Лиценз"},"listingDetailTitle":{"en":"Listing","mn":"Зар"},"listingSubmittedBody":{"en":"Your listing is awaiting moderation. It will appear publicly once a moderator approves it.","mn":"Таны зар модераторын хяналтыг хүлээж байна. Зөвшөөрөгдмөгц олон нийтэд харагдана."},"listingSubmittedTitle":{"en":"Submitted for review","mn":"Хянуулахаар илгээгдлээ"},"modReasonIncompleteInfo":{"en":"Incomplete information","mn":"Мэдээлэл дутуу"},"modReasonWrongCategory":{"en":"Wrong category","mn":"Буруу ангилал"},"myListingsEmptyMessage":{"en":"Post your first listing — it goes live after moderator review.","mn":"Анхны зараа оруулаарай — модераторын хяналтын дараа нийтлэгдэнэ."},"myListingsEmptyTitle":{"en":"No listings yet","mn":"Одоогоор зар алга"},"myListingsTitle":{"en":"My listings","mn":"Миний зарууд"},"navAlerts":{"en":"Notices","mn":"Мэдэгдэл"},"navDirectory":{"en":"Directory","mn":"Лавлах"},"navEvents":{"en":"Events","mn":"Арга хэмжээ"},"navExplore":{"en":"Explore","mn":"Хайх"},"navGuides":{"en":"Guides","mn":"Гарын авлага"},"navHome":{"en":"Home","mn":"Нүүр"},"navProfile":{"en":"Profile","mn":"Профайл"},"navSaved":{"en":"Saved","mn":"Хадгалсан"},"no":{"en":"No","mn":"Үгүй"},"notLegalAdviceBody":{"en":"Directory listings are for information only and do not constitute legal, tax, medical or financial advice, or an attorney-client relationship.","mn":"Лавлахын мэдээлэл нь зөвхөн танилцуулгын зориулалттай бөгөөд хууль зүй, татвар, эмнэлэг, санхүүгийн зөвлөгөө болон өмгөөлөгч-үйлчлүүлэгчийн харилцаа үүсгэхгүй."},"notLegalAdviceTitle":{"en":"Not legal advice","mn":"Хууль зүйн зөвлөгөө биш"},"offlineBannerText":{"en":"You appear to be offline.","mn":"Та офлайн байгаа бололтой."},"onbCityBody":{"en":"You will only see what is relevant to your city. You can change this any time.","mn":"Зөвхөн таны хотод хамаарах мэдээлэл харагдана. Хэдийд ч өөрчилж болно."},"onbCityTitle":{"en":"Choose your city","mn":"Хотоо сонгоно уу"},"onbDemoNote":{"en":"Demo mode — no real sign-in happens and nothing is stored.","mn":"Туршилтын горим — жинхэнэ нэвтрэлт хийгдэхгүй, өгөгдөл хадгалагдахгүй."},"onbStepAccount":{"en":"Account","mn":"Бүртгэл"},"onbStepCity":{"en":"City","mn":"Хот"},"onbStepTopics":{"en":"Topics","mn":"Сэдэв"},"onbTopicsBody":{"en":"Only the topics you pick appear on your home screen. Choose at least one.","mn":"Сонгосон сэдвүүд л нүүр хуудсанд харагдана. Дор хаяж нэгийг сонгоно уу."},"onbTopicsTitle":{"en":"Choose your topics","mn":"Юу харахаа сонгоно уу"},"onbWelcomeBody":{"en":"News, listings and services for Mongolians across the USA, in one place. Sign in to begin.","mn":"АНУ дахь Монголчуудын нэгдлийн мэдээ, зар, үйлчилгээ — нэг дороос. Эхлээд нэвтэрнэ үү."},"onbWelcomeTitle":{"en":"Welcome to MongolUSA Hub","mn":"MongolUSA Hub-д тавтай морил"},"orDivider":{"en":"or","mn":"эсвэл"},"orgAddressLabel":{"en":"Address","mn":"Хаяг"},"orgClaimAction":{"en":"Claim this organization","mn":"Энэ байгууллагыг өөрийн болгох"},"orgClaimBody":{"en":"A moderator reviews every claim before it takes effect. Claiming an organization lets you keep its details current — it never grants moderator or administrator rights.","mn":"Хүсэлт бүрийг модератор шалгасны дараа хүчинтэй болно. Байгууллагыг өөрийн болгосноор мэдээллийг нь шинэчилж байх эрх авна — модератор буюу администраторын эрх ОГТ олгохгүй."},"orgClaimSubmitted":{"en":"Claim sent for review","mn":"Хүсэлт хянуулахаар илгээгдлээ"},"orgClaimTitle":{"en":"Claim this organization","mn":"Байгууллагыг өөрийн болгох"},"orgNoticeBody":{"en":"Organizations are listed so the community can find them. A listing is not a recommendation, and a verified badge confirms only that the organization exists and that the contact details were checked.","mn":"Байгууллагуудыг нэгдэл олж чадахын тулд жагсаасан. Жагсаалтад орсон нь зөвлөж байгаа хэрэг биш бөгөөд баталгаажсан тэмдэг нь тухайн байгууллага бодитоор оршин байгаа, холбоо барих мэдээлэл шалгагдсаныг л илэрхийлнэ."},"orgNoticeTitle":{"en":"Listing is not endorsement","mn":"Жагсаалт нь баталгаа биш"},"orgScheduleLabel":{"en":"Meets","mn":"Цагийн хуваарь"},"orgTypeAssociation":{"en":"Association","mn":"Холбоо"},"orgTypeChurch":{"en":"Church","mn":"Сүм хийд"},"orgTypeConsulate":{"en":"Consular","mn":"Консулын"},"orgTypeNonprofit":{"en":"Nonprofit","mn":"Ашгийн бус"},"orgTypeSchool":{"en":"School","mn":"Сургууль"},"orgTypeSportsClub":{"en":"Sports club","mn":"Спортын клуб"},"orgTypeTemple":{"en":"Temple","mn":"Дацан"},"orgUnverifiedNote":{"en":"Not yet verified","mn":"Хараахан баталгаажаагүй"},"orgVerifiedBadge":{"en":"Verified organization","mn":"Баталгаажсан байгууллага"},"photosSectionHint":{"en":"Add up to 10 photos. Demo mode uses placeholders; photos are moderated before publishing.","mn":"Дээд тал нь 10 зураг нэмнэ. Туршилтын горимд орлуулагч зураг ашиглана; зургууд нийтлэгдэхийн өмнө хянагдана."},"prefsAllCities":{"en":"All cities","mn":"Бүх хот"},"prefsCategories":{"en":"Categories to show","mn":"Харах ангилал"},"prefsChange":{"en":"Change","mn":"Өөрчлөх"},"prefsCity":{"en":"My city","mn":"Миний хот"},"prefsCityEmpty":{"en":"Nothing in this category for {city} yet.","mn":"{city} хотод энэ ангилалд одоогоор зар алга."},"prefsIntroBody":{"en":"Pick your city and the categories you care about. Only those appear. You can change this any time.","mn":"Хотоо болон сонирхох ангиллаа сонгоход зөвхөн тэр мэдээлэл харагдана. Хэдийд ч өөрчилж болно."},"prefsIntroTitle":{"en":"Choose what you see","mn":"Юу харахаа сонгоно уу"},"prefsNoCategories":{"en":"No categories selected. Choose at least one.","mn":"Ангилал сонгоогүй байна. Дор хаяж нэгийг сонгоно уу."},"prefsSaveAction":{"en":"Save","mn":"Хадгалах"},"prefsSaved":{"en":"Preferences saved","mn":"Тохиргоо хадгалагдлаа"},"prefsTitle":{"en":"My preferences","mn":"Миний тохиргоо"},"prefsViewAllCities":{"en":"Show all cities","mn":"Бүх хотоор харах"},"profileGuestMessage":{"en":"Sign in to post listings, save items and manage your profile.","mn":"Зар оруулах, хадгалах, профайлаа удирдахын тулд нэвтэрнэ үү."},"profileGuestTitle":{"en":"You are browsing as a guest","mn":"Та зочноор үзэж байна"},"profileTitle":{"en":"Profile","mn":"Профайл"},"reportDialogBody":{"en":"Why are you reporting this? Moderators review every report.","mn":"Та юуны учир мэдэгдэж байна вэ? Модераторууд мэдэгдэл бүрийг хянадаг."},"reportDialogTitle":{"en":"Report content","mn":"Мэдэгдэл илгээх"},"reportNoteLabel":{"en":"Additional details (optional)","mn":"Нэмэлт тайлбар (заавал биш)"},"reportReasonDiscrimination":{"en":"Discrimination","mn":"Ялгаварлан гадуурхалт"},"reportReasonHarassment":{"en":"Harassment","mn":"Дарамт"},"reportReasonOther":{"en":"Other","mn":"Бусад"},"reportReasonProhibited":{"en":"Prohibited item","mn":"Хориотой бараа"},"reportReasonScam":{"en":"Scam or fraud","mn":"Залилан"},"reportReasonSpam":{"en":"Spam","mn":"Спам"},"reportSubmitted":{"en":"Report submitted. Thank you for keeping the community safe.","mn":"Мэдэгдэл илгээгдлээ. Нэгдлээ хамгаалж буйд баярлалаа."},"resultsCount":{"en":"{count} results","mn":"{count} илэрц"},"reviewSectionTitle":{"en":"Review","mn":"Хянах"},"savedEmptyMessage":{"en":"Tap the bookmark icon on any listing to save it here.","mn":"Дурын зарын тэмдэглэгээний товчийг дарж энд хадгалаарай."},"savedEmptyTitle":{"en":"Nothing saved yet","mn":"Хадгалсан зүйл алга"},"savedItemsTab":{"en":"Items","mn":"Зарууд"},"savedTitle":{"en":"Saved","mn":"Хадгалсан"},"savedTypeEvent":{"en":"Event","mn":"Арга хэмжээ"},"savedTypeJob":{"en":"Job","mn":"Ажлын байр"},"savedTypeListing":{"en":"Listing","mn":"Зар"},"searchHint":{"en":"Search listings…","mn":"Зар хайх…"},"sectionContact":{"en":"Contact","mn":"Холбоо барих"},"sectionDescription":{"en":"Description","mn":"Дэлгэрэнгүй"},"sectionHousingDetails":{"en":"Housing details","mn":"Байрны мэдээлэл"},"sectionLocation":{"en":"Location","mn":"Байршил"},"settingsLanguage":{"en":"Language","mn":"Хэл"},"settingsNotifications":{"en":"Notifications","mn":"Мэдэгдэл"},"settingsTheme":{"en":"Theme","mn":"Загвар"},"settingsTitle":{"en":"Settings","mn":"Тохиргоо"},"showExactAddressLabel":{"en":"Show exact address","mn":"Яг хаягийг харуулах"},"signInHeadline":{"en":"Welcome back","mn":"Тавтай морил"},"signInTitle":{"en":"Sign in","mn":"Нэвтрэх"},"signInToSave":{"en":"Sign in to save items.","mn":"Хадгалахын тулд нэвтэрнэ үү."},"signInWithApple":{"en":"Continue with Apple","mn":"Apple-ээр үргэлжлүүлэх"},"signInWithGoogle":{"en":"Continue with Google","mn":"Google-ээр үргэлжлүүлэх"},"sortNewest":{"en":"Newest","mn":"Шинэ эхэндээ"},"sortPriceAsc":{"en":"Price ↑","mn":"Үнэ өсөхөөр"},"sortPriceDesc":{"en":"Price ↓","mn":"Үнэ буурахаар"},"statusApproved":{"en":"Approved","mn":"Зөвшөөрсөн"},"statusArchived":{"en":"Archived","mn":"Архивласан"},"statusChangesRequested":{"en":"Changes requested","mn":"Засвар хүссэн"},"statusDraft":{"en":"Draft","mn":"Ноорог"},"statusExpired":{"en":"Expired","mn":"Хугацаа дууссан"},"statusPending":{"en":"Pending review","mn":"Хяналт хүлээж буй"},"statusRejected":{"en":"Rejected","mn":"Татгалзсан"},"subcatApartment":{"en":"Apartment","mn":"Байр"},"subcatCar":{"en":"Cars","mn":"Машин"},"subcatCargo":{"en":"Cargo to Mongolia","mn":"Монгол руу ачаа"},"subcatElectronics":{"en":"Electronics","mn":"Цахилгаан бараа"},"subcatExchange":{"en":"Exchange","mn":"Солилцоо"},"subcatFurniture":{"en":"Furniture","mn":"Тавилга"},"subcatGoods":{"en":"Goods","mn":"Бараа"},"subcatMotorcycle":{"en":"Motorcycle","mn":"Мотоцикл"},"subcatParts":{"en":"Parts","mn":"Сэлбэг"},"subcatRoom":{"en":"Room","mn":"Өрөө"},"subcatRoommate":{"en":"Roommate","mn":"Өрөөний хамтрагч"},"subcatSedan":{"en":"Sedan","mn":"Суудлын"},"subcatShared":{"en":"Shared housing","mn":"Хамтарч амьдрах"},"subcatSublease":{"en":"Sublease","mn":"Дамжуулан түрээслэх"},"subcatSuv":{"en":"SUV","mn":"Жийп"},"subcatTruck":{"en":"Truck","mn":"Ачааны"},"subcatVan":{"en":"Van / minivan","mn":"Вэн"},"themeDark":{"en":"Dark","mn":"Бараан"},"themeLight":{"en":"Light","mn":"Цайвар"},"themeSystem":{"en":"System","mn":"Систем"},"trustedSourceBadge":{"en":"Trusted source","mn":"Итгэлтэй эх сурвалж"},"validationAcceptNotices":{"en":"Please confirm the rules checkbox first.","mn":"Эхлээд журмыг зөвшөөрсөн тэмдэглэгээг чагтална уу."},"validationAvailableFrom":{"en":"Pick the available-from date","mn":"Орох боломжтой огноог сонгоно уу"},"validationDescriptionLength":{"en":"Description must be at least 20 characters","mn":"Тайлбар доод тал нь 20 тэмдэгт байна"},"validationNumber":{"en":"Enter a valid number","mn":"Зөв тоо оруулна уу"},"validationPrice":{"en":"Enter a valid price","mn":"Зөв үнэ оруулна уу"},"validationRequired":{"en":"Required","mn":"Заавал бөглөнө"},"validationStateRequired":{"en":"Select a state","mn":"Муж сонгоно уу"},"validationTitleLength":{"en":"Title must be at least 5 characters","mn":"Гарчиг доод тал нь 5 тэмдэгт байна"},"validationZip":{"en":"Enter a 5-digit ZIP code","mn":"5 оронтой ZIP код оруулна уу"},"vehicleMileage":{"en":"{miles} mi","mn":"{miles} миль"},"vehicleSafetyBody":{"en":"Meet in a public place, see the title in person and check the VIN against it. Do not send a deposit by wire transfer, gift card or cryptocurrency — those payments cannot be reversed. A rebuilt or salvage title is disclosed on the listing; ask why.","mn":"Олон нийтийн газар уулзаж, title-ыг биечлэн үзэж, VIN дугаартай нь тулгаж шалгаарай. Урьдчилгааг wire transfer, бэлгийн карт, крипто валютаар БҮҮ илгээ — эдгээр төлбөрийг буцаах боломжгүй. Rebuilt эсвэл salvage title-тай эсэхийг зард бичсэн байгаа; шалтгааныг нь асуу."},"vehicleSafetyTitle":{"en":"Before you buy","mn":"Худалдаж авахын өмнө"},"vehicleTitleClean":{"en":"Clean title","mn":"Clean title"},"vehicleTitleRebuilt":{"en":"Rebuilt / salvage title","mn":"Rebuilt / salvage title"},"vehicleTransmissionAuto":{"en":"Automatic","mn":"Автомат"},"vehicleTransmissionManual":{"en":"Manual","mn":"Механик"},"vehicleYear":{"en":"Year","mn":"Он"},"verificationSourceLabel":{"en":"Verified via","mn":"Баталгаажуулсан эх сурвалж"},"verifiedBadge":{"en":"Verified professional","mn":"Баталгаажсан мэргэжилтэн"},"verifiedOn":{"en":"Verified on {date}","mn":"{date}-нд баталгаажсан"},"workAuthNotice":{"en":"Employers must verify work authorization as required by U.S. law, and jobs must comply with minimum wage and labor laws. Report postings that ask for illegal fees or undocumented work arrangements.","mn":"Ажил олгогч нь АНУ-ын хуулийн дагуу ажиллах эрхийг шалгах үүрэгтэй бөгөөд ажлын байр нь хөдөлмөрийн хөлсний доод хэмжээ, хөдөлмөрийн хуульд нийцсэн байх ёстой. Хууль бус төлбөр нэхсэн, бичиг баримтгүй ажиллуулах саналтай зарыг мэдэгдээрэй."},"workAuthTitle":{"en":"Work authorization & labor law","mn":"Ажиллах эрх ба хөдөлмөрийн хууль"},"yes":{"en":"Yes","mn":"Тийм"}};
 delete STR._meta;
 
 /* ===== cities in the demo corpus, with the state each maps to ===== */
@@ -369,6 +478,36 @@ function t(key, vars){
 function esc(s){
   return String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
+
+/* ===================== icons (Feather-style, inline) ===================== */
+const ICONS = {
+  home:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+  bell:'<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
+  bookmark:'<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>',
+  user:'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+  plus:'<line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  moon:'<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+  sun:'<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>',
+  chevronDown:'<polyline points="6 9 12 15 18 9"/>',
+  mapPin:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+  arrowLeft:'<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>',
+  search:'<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+  car:'<path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/>',
+  briefcase:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+  calendar:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+  users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  bookOpen:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  checkCircle:'<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+  x:'<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>',
+  tag:'<path d="M20.59 13.41L13.41 20.59a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>',
+};
+function icon(name, cls){
+  const d = ICONS[name]; if (!d) return '';
+  return '<svg class="ic'+(cls?' '+cls:'')+'" viewBox="0 0 24 24" aria-hidden="true">'+d+'</svg>';
+}
+const NAVICON = {navHome:'home', navAlerts:'bell', navSaved:'bookmark', navProfile:'user', adminTitle:'shield', actionPostListing:'plus'};
+const CATICON = {housing:'home', vehicles:'car', jobs:'briefcase', events:'calendar', orgs:'users', advice:'bookOpen', meet:'users', training:'bookOpen'};
 const LOC = () => state.lang === 'mn' ? 'mn-MN' : 'en-US';
 function money(c){ return c==null?'':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(c/100); }
 function moneyPrecise(c){ return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2}).format(c/100); }
@@ -387,7 +526,7 @@ function ftime(iso, tz){
 function applyTheme(){
   document.documentElement.setAttribute('data-theme', state.theme);
   const b = document.getElementById('themeBtn');
-  if (b) b.textContent = state.theme==='dark' ? t('themeLight') : t('themeDark');
+  if (b) b.innerHTML = icon(state.theme==='dark'?'sun':'moon')+'<span>'+esc(t(state.theme==='dark'?'themeLight':'themeDark'))+'</span>';
 }
 function toggleTheme(){
   state.theme = state.theme==='dark' ? 'light' : 'dark';
@@ -515,20 +654,23 @@ function stepChips(active){
   return '<div class="steps">'+steps.map(([k,i])=>
     '<span class="st '+(i===active?'on':i<active?'done':'')+'">'+esc(t(k))+'</span>').join('')+'</div>';
 }
+function onbWrap(html){
+  return '<div class="onbwrap"><div class="onbcard">'+html+'</div></div>';
+}
 function screenOnboarding(){
   const step = state.prefs.step;
   if (step === 0){
-    return stepChips(0)+
+    return onbWrap(stepChips(0)+
       '<h1>'+esc(t('onbWelcomeTitle'))+'</h1>'+
       '<p class="dim mt2">'+esc(t('onbWelcomeBody'))+'</p>'+
       '<div class="card pad mt5">'+
         '<button class="btn block" onclick="onbSignIn()">'+esc(t('actionContinueWithGoogle'))+'</button>'+
         '<p class="tiny muted mt3" style="text-align:center">'+esc(t('onbDemoNote'))+'</p>'+
-      '</div>';
+      '</div>');
   }
   if (step === 1){
     if (state.onbCity === null) state.onbCity = state.prefs.city;
-    return stepChips(1)+
+    return onbWrap(stepChips(1)+
       '<h1>'+esc(t('onbCityTitle'))+'</h1>'+
       '<p class="dim mt2">'+esc(t('onbCityBody'))+'</p>'+
       '<div class="toggles mt5">'+ CITIES.map(c =>
@@ -540,10 +682,10 @@ function screenOnboarding(){
       '<div class="row wrapf mt5" style="gap:var(--s2)">'+
         '<button class="btn" onclick="onbNextCity()"'+(state.onbCity===null?' disabled':'')+'>'+esc(t('actionNext'))+'</button>'+
         '<button class="btn ghost" onclick="onbBack()">'+esc(t('actionBack'))+'</button>'+
-      '</div>';
+      '</div>');
   }
   if (state.onbCats === null) state.onbCats = new Set(state.prefs.cats);
-  return stepChips(2)+
+  return onbWrap(stepChips(2)+
     '<h1>'+esc(t('onbTopicsTitle'))+'</h1>'+
     '<p class="dim mt2">'+esc(t('onbTopicsBody'))+'</p>'+
     '<div class="toggles mt5">'+ CATS.map(c =>
@@ -553,7 +695,7 @@ function screenOnboarding(){
       '<button class="btn" onclick="onbFinish()"'+(state.onbCats.size===0?' disabled':'')+'>'+
         esc(t('actionFinishSetup'))+'</button>'+
       '<button class="btn ghost" onclick="onbBack()">'+esc(t('actionBack'))+'</button>'+
-    '</div>';
+    '</div>');
 }
 function onbSignIn(){
   state.prefs.signedIn = true;
@@ -693,16 +835,25 @@ function renderNav(){
   }
   const cur = currentNavHref();
   const items = navItems();
-  const link = (n,cls) => '<a class="'+cls+'" href="'+n.href+'"'+(cur===n.href?' aria-current="page"':'')+'>'+esc(t(n.key))+'</a>';
+  const cityLabel = myCity() ? myCity() : t('prefsAllCities');
+  const raillink = n => '<a class="raillink" href="'+n.href+'"'+(cur===n.href?' aria-current="page"':'')+'>'+
+    icon(NAVICON[n.key]||'home')+'<span>'+esc(t(n.key))+'</span></a>';
+  const bottomlink = n => '<a href="'+n.href+'"'+(cur===n.href?' aria-current="page"':'')+'>'+
+    icon(NAVICON[n.key]||'home')+'<span>'+esc(t(n.key))+'</span></a>';
   // Supply is the constraint, so the create action is permanently one tap away
   // rather than buried inside the home screen.
-  const create = {href:'#/create', key:'actionPostListing'};
   document.getElementById('rail').innerHTML =
-    items.map(n=>link(n,'raillink')).join('') +
-    (state.role==='moderator' ? link({href:'#/admin',key:'adminTitle'},'raillink') : '') +
-    link(create,'raillink primary');
+    '<div class="railhead"><a class="brand" href="#/home"><span class="logo"></span><span>'+esc(t('appTitle'))+'</span></a></div>'+
+    '<button class="citypill" type="button" onclick="reopenSetup(1)">'+icon('mapPin')+
+      '<span><b>'+esc(cityLabel)+'</b><span class="sub">'+esc(t('prefsCategories'))+': '+state.prefs.cats.size+'/'+CATS.length+'</span></span>'+
+      icon('chevronDown')+'</button>'+
+    items.map(raillink).join('') +
+    (state.role==='moderator' ? raillink({href:'#/admin',key:'adminTitle'}) : '') +
+    '<a class="createbtn" href="#/create"'+(cur==='#/create'?' aria-current="page"':'')+'>'+icon('plus')+'<span>'+esc(t('actionPostListing'))+'</span></a>'+
+    '<div class="sidefoot"><span class="tiny muted">'+esc(t('appTitle'))+'</span></div>';
   document.getElementById('bottomnav').innerHTML =
-    items.map(n=>link(n,'')).join('') + link(create,'navcreate');
+    items.map(bottomlink).join('') +
+    '<a class="navcreate" href="#/create"><span class="plus">'+icon('plus')+'</span><span>'+esc(t('actionPostListing'))+'</span></a>';
 }
 function renderCityBar(){
   const el = document.getElementById('citybar');
@@ -723,70 +874,89 @@ function saveBtn(id){
   return '<button class="savebtn'+(on?' on':'')+'" onclick="toggleSave(\''+id+'\',event)">'+
     esc(t(on?'actionUnsave':'actionSave'))+'</button>';
 }
+const CATLETTER = {housing:'H', marketplace:'M', vehicles:'V', jobs:'J', events:'E'};
+function avatarInitials(name){
+  const parts = String(name||'').trim().split(/\s+/);
+  return ((parts[0]||'')[0]||'').toUpperCase() + ((parts[1]||'')[0]||'').toUpperCase();
+}
+function avatarClass(seed){
+  let h = 0; const s = String(seed||'');
+  for (let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) >>> 0;
+  return 'a'+(h%6);
+}
+function avatarEl(name){
+  return '<div class="avatar '+avatarClass(name)+'">'+esc(avatarInitials(name))+'</div>';
+}
 function listingCard(l){
   const isH = l.category==='housing';
   const st = effStatus(l);
-  return '<a class="card pad" href="#/listing/'+l.id+'">'+
-    '<div class="row" style="align-items:flex-start;gap:var(--s3)">'+
-      '<div class="ph thumb"></div>'+
-      '<div style="flex:1;min-width:0">'+
-        '<div class="row" style="justify-content:space-between;align-items:flex-start;gap:var(--s2)">'+
-          '<h3 style="flex:1;min-width:0">'+esc(l.title)+'</h3>'+saveBtn(l.id)+'</div>'+
-        '<div class="price mt1">'+money(l.priceCents)+(isH?'<span class="muted small" style="font-weight:500">/mo</span>':'')+'</div>'+
-        '<div class="row wrapf mt2" style="gap:6px">'+
-          '<span class="chip">'+esc(t(SUBCAT[l.subcategory]||l.subcategory))+'</span>'+
-          '<span class="chip">'+esc(l.city)+', '+esc(l.state)+'</span>'+
-          (isH&&l.housing?'<span class="chip">'+esc(t('bedroomsShort',{count:l.housing.bedrooms}))+'</span>':'')+
-          (l.vehicle?'<span class="chip">'+esc(t('vehicleMileage',{miles:milesText(l.vehicle.mileageMiles)}))+'</span>':'')+
-          (l.vehicle&&!l.vehicle.titleClean?'<span class="chip warn">'+esc(t('vehicleTitleRebuilt'))+'</span>':'')+
-          (st!=='approved'?statusChip(st):'')+
-        '</div></div></div></a>';
+  return '<a class="card media" href="#/listing/'+l.id+'">'+
+    '<div class="photo c-'+esc(l.category)+'"><span class="cat">'+esc(CATLETTER[l.category]||'?')+'</span>'+
+      '<span class="save">'+saveBtn(l.id)+'</span></div>'+
+    '<div class="pcbody">'+
+      '<div class="pcprice">'+money(l.priceCents)+(isH?'<span class="muted small" style="font-weight:500"> /mo</span>':'')+'</div>'+
+      '<div class="pctitle">'+esc(l.title)+'</div>'+
+      '<div class="pcmeta">'+icon('mapPin')+'<span>'+esc(l.city)+', '+esc(l.state)+'</span></div>'+
+      '<div class="row wrapf mt2" style="gap:6px">'+
+        '<span class="chip">'+esc(t(SUBCAT[l.subcategory]||l.subcategory))+'</span>'+
+        (isH&&l.housing?'<span class="chip">'+esc(t('bedroomsShort',{count:l.housing.bedrooms}))+'</span>':'')+
+        (l.vehicle?'<span class="chip">'+esc(t('vehicleMileage',{miles:milesText(l.vehicle.mileageMiles)}))+'</span>':'')+
+        (l.vehicle&&!l.vehicle.titleClean?'<span class="chip warn">'+esc(t('vehicleTitleRebuilt'))+'</span>':'')+
+        (st!=='approved'?statusChip(st):'')+
+      '</div>'+
+    '</div></a>';
 }
 function jobCard(j){
   const st = effStatus(j);
-  return '<a class="card pad" href="#/job/'+j.id+'">'+
-    '<div class="row" style="justify-content:space-between;align-items:flex-start;gap:var(--s2)">'+
-      '<div style="flex:1;min-width:0"><h3>'+esc(j.title)+'</h3>'+
-      '<div class="dim small mt1">'+esc(j.employerName)+'</div></div>'+saveBtn(j.id)+'</div>'+
-    '<div class="mt2" style="font-weight:640">'+esc(compText(j.compensation))+'</div>'+
-    '<div class="row wrapf mt2" style="gap:6px">'+
-      '<span class="chip">'+esc(t(EMPTYPE[j.employmentType]||j.employmentType))+'</span>'+
-      (j.remote?'<span class="chip accent">'+esc(t('jobRemote'))+'</span>'
-               :'<span class="chip">'+esc(j.city||'')+', '+esc(j.state||'')+'</span>')+
-      (st!=='approved'?statusChip(st):'')+
+  return '<a class="card media" href="#/job/'+j.id+'">'+
+    '<div class="photo c-jobs"><span class="cat">'+icon('briefcase')+'</span><span class="save">'+saveBtn(j.id)+'</span></div>'+
+    '<div class="pcbody">'+
+      '<div class="pctitle" style="font-size:14.5px">'+esc(j.title)+'</div>'+
+      '<div class="dim small mt1">'+esc(j.employerName)+'</div>'+
+      '<div class="pcmeta" style="font-weight:640;color:var(--price);font-size:13px">'+esc(compText(j.compensation))+'</div>'+
+      '<div class="row wrapf mt2" style="gap:6px">'+
+        '<span class="chip">'+esc(t(EMPTYPE[j.employmentType]||j.employmentType))+'</span>'+
+        (j.remote?'<span class="chip accent">'+esc(t('jobRemote'))+'</span>'
+                 :'<span class="chip">'+esc(j.city||'')+', '+esc(j.state||'')+'</span>')+
+        (st!=='approved'?statusChip(st):'')+
+      '</div>'+
     '</div></a>';
 }
 function eventCard(e){
-  return '<a class="card pad" href="#/event/'+e.id+'">'+
-    '<div class="row" style="justify-content:space-between;align-items:flex-start;gap:var(--s2)">'+
-      '<div style="flex:1;min-width:0"><h3>'+esc(e.title)+'</h3></div>'+saveBtn(e.id)+'</div>'+
-    '<div class="dim small mt1">'+esc(ftime(e.startAt,e.timezone))+'</div>'+
-    '<div class="row wrapf mt2" style="gap:6px">'+
-      '<span class="chip accent">'+esc(t(EVCAT[e.category]||e.category))+'</span>'+
-      (e.venueName?'<span class="chip">'+esc(e.venueName)+'</span>':'')+
+  return '<a class="card media" href="#/event/'+e.id+'">'+
+    '<div class="photo c-events"><span class="cat">'+icon('calendar')+'</span><span class="save">'+saveBtn(e.id)+'</span></div>'+
+    '<div class="pcbody">'+
+      '<div class="pctitle" style="font-size:14.5px">'+esc(e.title)+'</div>'+
+      '<div class="pcmeta">'+icon('mapPin')+'<span>'+esc(ftime(e.startAt,e.timezone))+'</span></div>'+
+      '<div class="row wrapf mt2" style="gap:6px">'+
+        '<span class="chip accent">'+esc(t(EVCAT[e.category]||e.category))+'</span>'+
+        (e.venueName?'<span class="chip">'+esc(e.venueName)+'</span>':'')+
+      '</div>'+
     '</div></a>';
 }
 function proCard(d){
   return '<a class="card pad" href="#/pro/'+d.id+'">'+
-    '<h3>'+esc(d.displayName)+'</h3>'+
-    '<div class="dim small mt1">'+esc(t(DIRCAT[d.category]||d.category))+'</div>'+
-    '<div class="row wrapf mt2" style="gap:6px">'+
-      '<span class="chip good">'+esc(t('verifiedBadge'))+'</span>'+
-      '<span class="chip">'+esc(d.city)+', '+esc(d.state)+'</span>'+
-      '<span class="chip">'+esc((d.languages||[]).join(', ').toUpperCase())+'</span>'+
-    '</div></a>';
+    '<div class="row" style="align-items:flex-start;gap:var(--s3)">'+avatarEl(d.displayName)+
+      '<div style="flex:1;min-width:0"><h3>'+esc(d.displayName)+'</h3>'+
+      '<div class="dim small mt1">'+esc(t(DIRCAT[d.category]||d.category))+'</div>'+
+      '<div class="row wrapf mt2" style="gap:6px">'+
+        '<span class="chip good">'+icon('checkCircle')+esc(t('verifiedBadge'))+'</span>'+
+        '<span class="chip">'+esc(d.city)+', '+esc(d.state)+'</span>'+
+        '<span class="chip">'+esc((d.languages||[]).join(', ').toUpperCase())+'</span>'+
+      '</div></div></div></a>';
 }
 function orgCard(o){
   return '<a class="card pad" href="#/org/'+o.id+'">'+
-    '<h3>'+esc(o.name)+'</h3>'+
-    '<div class="dim small mt1">'+esc(t(ORGTYPE[o.type]||o.type))+'</div>'+
-    '<div class="row wrapf mt2" style="gap:6px">'+
-      (o.verificationStatus==='verified'
-        ? '<span class="chip good">'+esc(t('verifiedBadge'))+'</span>'
-        : '<span class="chip">'+esc(t('orgUnverifiedNote'))+'</span>')+
-      '<span class="chip">'+esc(o.city)+', '+esc(o.state)+'</span>'+
-      (o.meetingSchedule?'<span class="chip">'+esc(o.meetingSchedule)+'</span>':'')+
-    '</div></a>';
+    '<div class="row" style="align-items:flex-start;gap:var(--s3)">'+avatarEl(o.name)+
+      '<div style="flex:1;min-width:0"><h3>'+esc(o.name)+'</h3>'+
+      '<div class="dim small mt1">'+esc(t(ORGTYPE[o.type]||o.type))+'</div>'+
+      '<div class="row wrapf mt2" style="gap:6px">'+
+        (o.verificationStatus==='verified'
+          ? '<span class="chip good">'+icon('checkCircle')+esc(t('verifiedBadge'))+'</span>'
+          : '<span class="chip">'+esc(t('orgUnverifiedNote'))+'</span>')+
+        '<span class="chip">'+esc(o.city)+', '+esc(o.state)+'</span>'+
+        (o.meetingSchedule?'<span class="chip">'+esc(o.meetingSchedule)+'</span>':'')+
+      '</div></div></div></a>';
 }
 function guideCard(g){
   return '<a class="card pad" href="#/guide/'+g.id+'"><h3>'+esc(g.title)+'</h3>'+
@@ -844,7 +1014,7 @@ function screenTopic(key){
   if (!cat) return notFound();
   const items = itemsFor(key);
   return ''+
-  '<a class="backlink" href="#/home">← '+esc(t('navHome'))+'</a>'+
+  '<a class="backlink" href="#/home">'+icon('arrowLeft')+' '+esc(t('navHome'))+'</a>'+
   '<h1>'+esc(t(cat.label))+'</h1>'+
   '<div class="row mt3 mb3"><span class="muted small">'+esc(t('resultsCount',{count:items.length}))+'</span></div>'+
   (key==='jobs' ? '<div class="notice warn mb4"><h4>'+esc(t('workAuthTitle'))+'</h4>'+esc(t('workAuthNotice'))+'</div>' : '')+
@@ -860,7 +1030,7 @@ function screenListing(id){
   const backKey = isH?'housing':isV?'vehicles':'trade';
   const backLbl = isH?'catHousing':isV?'catVehicles':'catTrade';
   return ''+
-  '<a class="backlink" href="#/topic/'+backKey+'">← '+esc(t(backLbl))+'</a>'+
+  '<a class="backlink" href="#/topic/'+backKey+'">'+icon('arrowLeft')+' '+esc(t(backLbl))+'</a>'+
   '<div class="ph hero mb4"></div>'+
   '<div class="row" style="justify-content:space-between;align-items:flex-start;gap:var(--s3)">'+
     '<h1 style="flex:1">'+esc(l.title)+'</h1>'+saveBtn(l.id)+'</div>'+
@@ -899,7 +1069,7 @@ function screenListing(id){
 function screenJob(id){
   const j=byId(id); if(!j) return notFound();
   return ''+
-  '<a class="backlink" href="#/topic/jobs">← '+esc(t('catJobs'))+'</a>'+
+  '<a class="backlink" href="#/topic/jobs">'+icon('arrowLeft')+' '+esc(t('catJobs'))+'</a>'+
   '<div class="row" style="justify-content:space-between;align-items:flex-start;gap:var(--s3)">'+
     '<div style="flex:1"><h1>'+esc(j.title)+'</h1><div class="dim mt1">'+esc(j.employerName)+'</div></div>'+saveBtn(j.id)+'</div>'+
   '<div class="row wrapf mt3" style="gap:6px">'+
@@ -921,7 +1091,7 @@ function screenEvent(id){
     '&details='+encodeURIComponent(e.description||'')+'&location='+encodeURIComponent(e.address||e.venueName||'');
   const back = e.category==='networking' ? 'meet' : e.category==='school' ? 'training' : 'events';
   return ''+
-  '<a class="backlink" href="#/topic/'+back+'">← '+esc(t(back==='meet'?'catMeet':back==='training'?'catTraining':'catEvents'))+'</a>'+
+  '<a class="backlink" href="#/topic/'+back+'">'+icon('arrowLeft')+' '+esc(t(back==='meet'?'catMeet':back==='training'?'catTraining':'catEvents'))+'</a>'+
   '<div class="row" style="justify-content:space-between;align-items:flex-start;gap:var(--s3)">'+
     '<h1 style="flex:1">'+esc(e.title)+'</h1>'+saveBtn(e.id)+'</div>'+
   '<div class="row wrapf mt3" style="gap:6px"><span class="chip accent">'+esc(t(EVCAT[e.category]||e.category))+'</span></div>'+
@@ -943,7 +1113,7 @@ function screenPro(id){
                 cpa:'business', attorney:'business', eduConsultant:'training'}[d.category] || 'services';
   const backCat = CATS.find(c=>c.key===back);
   return ''+
-  '<a class="backlink" href="#/topic/'+back+'">← '+esc(t(backCat.label))+'</a>'+
+  '<a class="backlink" href="#/topic/'+back+'">'+icon('arrowLeft')+' '+esc(t(backCat.label))+'</a>'+
   '<h1>'+esc(d.displayName)+'</h1><div class="dim mt1">'+esc(t(DIRCAT[d.category]||d.category))+'</div>'+
   '<div class="row wrapf mt3" style="gap:6px"><span class="chip good">'+esc(t('verifiedBadge'))+'</span>'+
     '<span class="chip">'+esc(t('verifiedOn',{date:fdate(d.verifiedAt)}))+'</span></div>'+
@@ -962,7 +1132,7 @@ function screenPro(id){
 function screenOrg(id){
   const o=byId(id); if(!o) return notFound();
   return ''+
-  '<a class="backlink" href="#/topic/orgs">← '+esc(t('catOrgs'))+'</a>'+
+  '<a class="backlink" href="#/topic/orgs">'+icon('arrowLeft')+' '+esc(t('catOrgs'))+'</a>'+
   '<h1>'+esc(o.name)+'</h1><div class="dim mt1">'+esc(t(ORGTYPE[o.type]||o.type))+'</div>'+
   '<div class="row wrapf mt3" style="gap:6px">'+
     (o.verificationStatus==='verified'
@@ -1003,7 +1173,7 @@ function mdToHtml(md){
 function screenGuide(id){
   const g=byId(id); if(!g) return notFound();
   return ''+
-  '<a class="backlink" href="#/topic/advice">← '+esc(t('catAdvice'))+'</a>'+
+  '<a class="backlink" href="#/topic/advice">'+icon('arrowLeft')+' '+esc(t('catAdvice'))+'</a>'+
   '<h1>'+esc(g.title)+'</h1>'+
   '<div class="row wrapf mt3" style="gap:6px"><span class="chip">'+esc(g.jurisdiction||'')+'</span>'+
     '<span class="chip">'+esc(t('guideVersion',{version:g.version}))+'</span>'+
@@ -1025,7 +1195,7 @@ function screenNotices(){
 function screenNotice(id){
   const a=byId(id); if(!a) return notFound();
   return ''+
-  '<a class="backlink" href="#/alerts">← '+esc(t('alertsTitle'))+'</a>'+
+  '<a class="backlink" href="#/alerts">'+icon('arrowLeft')+' '+esc(t('alertsTitle'))+'</a>'+
   '<div class="row wrapf mb3" style="gap:6px"><span class="chip critical">'+esc(t(ALTYPE[a.type]||a.type))+'</span>'+
     (a.trustedSource?'<span class="chip info">'+esc(t('trustedSourceBadge'))+'</span>':'')+'</div>'+
   '<h1>'+esc(a.title)+'</h1><p class="dim mt3">'+esc(a.body)+'</p>'+
